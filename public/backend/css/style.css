@@ -13,7 +13,11 @@ html, body{
 	font-family: 'Roboto', sans-serif;
     font-size: 100%;
     overflow-x: hidden;
+<<<<<<< HEAD
   
+=======
+    display: none;
+>>>>>>> parent of 36d31fb... Trang Admin
 	
 }
 body a{
