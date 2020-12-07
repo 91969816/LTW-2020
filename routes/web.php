@@ -12,7 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//front-end 
 Route::get('/', 'App\Http\Controllers\HomeController@index');
 
 
+//back-end
+Route::get('/admin', 'App\Http\Controllers\AdminController@index');
