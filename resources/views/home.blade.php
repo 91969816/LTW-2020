@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Home | E-Shopper</title>
+    <title>Home | Pet-Shop</title>
     <link href="{{asset('public/frontend/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('public/frontend/css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('public/frontend/css/prettyPhoto.css')}}" rel="stylesheet">
@@ -31,8 +31,8 @@
 					<div class="col-sm-6">
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
-								<li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
+								<li><a href="#"><i class="fa fa-phone"></i> +84 222 777 888</a></li>
+								<li><a href="#"><i class="fa fa-envelope"></i> petshopCat@gmail.com</a></li>
 							</ul>
 						</div>
 					</div>
@@ -40,9 +40,6 @@
 						<div class="social-icons pull-right">
 							<ul class="nav navbar-nav">
 								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
 								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
 							</ul>
 						</div>
@@ -56,40 +53,16 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="index.html"><img src="{{('public/fronimages/home/logo.png')}}" alt="" /></a>
-						</div>
-						<div class="btn-group pull-right">
-							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									USA
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="#">Canada</a></li>
-									<li><a href="#">UK</a></li>
-								</ul>
-							</div>
-							
-							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									DOLLAR
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="#">Canadian Dollar</a></li>
-									<li><a href="#">Pound</a></li>
-								</ul>
-							</div>
-						</div>
+							<a href="index.html"><img src="{{('public/frontend/images/pet-shop-logo.jpg')}}" class="img-responsive" alt="" style="width:150px;height:150px;"/></a>
+						</div>						
 					</div>
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
-							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-user"></i> Account</a></li>
-								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
-								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+							<ul class="nav navbar-nav">																
+								<li><a href="#"><i class="fa fa-question"></i> Trợ Giúp</a></li>
+								<li><a href="#"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+								<li><a href="#"><i class="fa fa-user"></i>Đăng Ký</a></li>
+								<li><a href="#"><i class="fa fa-sign-in"></i> Đăng Nhập</a></li>
 							</ul>
 						</div>
 					</div>
@@ -111,7 +84,7 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="{{URL::to('/')}}" class="active">Home</a></li>
+								<li><a href="{{URL::to('/')}}" class="active">Trang Chủ</a></li>
 								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="shop.html">Products</a></li>
@@ -121,20 +94,20 @@
 										<li><a href="login.html">Login</a></li> 
                                     </ul>
                                 </li> 
-								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
+								<li class="dropdown"><a href="#">Diễn Đàn<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="blog.html">Blog List</a></li>
-										<li><a href="blog-single.html">Blog Single</a></li>
+                                        <li><a href="#">Cách Chăm Sóc Mèo</a></li>
+										<li><a href="#">Tìm Hiểu Về Mèo</a></li>
                                     </ul>
                                 </li> 
-								<li><a href="404.html">404</a></li>
-								<li><a href="contact-us.html">Contact</a></li>
+								
+								<li><a href="contact-us.html">Liên Hệ | Đặt Hàng</a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-sm-3">
 						<div class="search_box pull-right">
-							<input type="text" placeholder="Search"/>
+							<input type="text" placeholder="Tìm Kiếm"/>
 						</div>
 					</div>
 				</div>
@@ -155,41 +128,29 @@
 						
 						<div class="carousel-inner">
 							<div class="item active">
-								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>Free E-Commerce Template</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
-								</div>
-								<div class="col-sm-6">
-									<img src="images/home/girl1.jpg" class="girl img-responsive" alt="" />
-									<img src="images/home/pricing.png"  class="pricing" alt="" />
-								</div>
+								<div class="col-sm-10">									
+									<h1><span>Mèo Bangdal</span></h1>
+									<img src="imagesCat/meo-bengal.jpg" class="girl img-responsive" alt="" />									
+									<p>Xuất hiện vào thế kỷ 19 ở Mỹ, mèo Bengal là kết quả lai chéo giữa mèo nhà Mỹ và mèo báo châu Á. Cái tên “Bengal” lấy họ từ mèo Felis Bengalensis và giống mèo này được phát triển giống những loài mèo hoang, mèo rừng như: Mèo gấm ocelots, báo hoa mai, báo gấm, mèo đốm margays.</p>				
+									<button type="button" class="btn btn-default get">Thông Tin Sản Phẩm</button> 								
+								</div>								
 							</div>
 							<div class="item">
-								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>100% Responsive Design</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
-								</div>
-								<div class="col-sm-6">
-									<img src="images/home/girl2.jpg" class="girl img-responsive" alt="" />
-									<img src="images/home/pricing.png"  class="pricing" alt="" />
+								<div class="col-sm-10">
+									<h1><span>Mèo Ragdoll</span></h1>
+									<img src="imagesCat/meo-ragdoll.jpg" class="girl img-responsive" alt="" />									
+									<p>Mèo Ragdoll là tên một giống mèo với đôi mắt màu xanh dương và bộ lông hai màu tương phản đặc trưng. Nó là giống mèo to lớn, với cơ bắp rắn chắc và bộ lông mềm mại và hơi dài.Chúng cũng được biết đến là giống mèo hiền lành, dễ bảo và dễ thương. Mèo Ragdoll được một người gây giống Hoa Kỳ tên là Ann Baker phát triển, và cái tên Ragdoll xuất phát từ thói quen rũ người ra và thả lỏng cơ thể khi được bế lên của các cá thể mèo đời đầu tiên.</p>
+									<button type="button" class="btn btn-default get">Thông Tin Sản Phẩm</button>
 								</div>
 							</div>
 							
 							<div class="item">
-								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>Free Ecommerce Template</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
-								</div>
-								<div class="col-sm-6">
-									<img src="images/home/girl3.jpg" class="girl img-responsive" alt="" />
-									<img src="images/home/pricing.png" class="pricing" alt="" />
-								</div>
+								<div class="col-sm-10">
+								<h1><span>Mèo Sphynx</span></h1>
+									<img src="imagesCat/meo-Sphynx.jpg" class="girl img-responsive" alt="" />									
+									<p>Người ta gọi mèo Sphynx là mèo Ai Cập không phải vì Sphynx có nguồn gốc từ mảnh đất sinh ra các Pharaoh mà bởi vì ngoại hình của nó. Ban đầu người ta chỉ gọi là mèo không lông. Nhưng vì ngoại hình của chúng khá giống với bức tượng nhân sư ở Ai Cập nên cái tên mèo Ai Cập, mèo nhân sư ra đời.</p>
+									<button type="button" class="btn btn-default get">Thông Tin Sản Phẩm</button>
+								</div>						
 							</div>
 							
 						</div>
@@ -212,25 +173,25 @@
 			<div class="row">
 				<div class="col-sm-3">
 					<div class="left-sidebar">
-						<h2>Category</h2>
+						<h2>Danh Mục</h2>
 						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
+										<a data-toggle="collapse" data-parent="#accordian" href="#cat">
 											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Sportswear
+											Mèo
 										</a>
 									</h4>
 								</div>
-								<div id="sportswear" class="panel-collapse collapse">
+								<div id="cat" class="panel-collapse collapse">
 									<div class="panel-body">
 										<ul>
-											<li><a href="#">Nike </a></li>
-											<li><a href="#">Under Armour </a></li>
-											<li><a href="#">Adidas </a></li>
-											<li><a href="#">Puma</a></li>
-											<li><a href="#">ASICS </a></li>
+											<li><a href="#">Mèo Ba Tư </a></li>
+											<li><a href="#">Mèo Anh Lông Ngắn </a></li>
+											<li><a href="#">Mèo Tai Cụp</a></li>
+											<li><a href="#">Mèo Xiêm</a></li>
+											<li><a href="#">Mèo Ragdoll</a></li>
 										</ul>
 									</div>
 								</div>
@@ -238,25 +199,19 @@
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#mens">
+										<a data-toggle="collapse" data-parent="#accordian" href="#TP">
 											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Mens
+											Thực Phẩm
 										</a>
 									</h4>
 								</div>
-								<div id="mens" class="panel-collapse collapse">
+								<div id="TP" class="panel-collapse collapse">
 									<div class="panel-body">
 										<ul>
-											<li><a href="#">Fendi</a></li>
-											<li><a href="#">Guess</a></li>
-											<li><a href="#">Valentino</a></li>
-											<li><a href="#">Dior</a></li>
-											<li><a href="#">Versace</a></li>
-											<li><a href="#">Armani</a></li>
-											<li><a href="#">Prada</a></li>
-											<li><a href="#">Dolce and Gabbana</a></li>
-											<li><a href="#">Chanel</a></li>
-											<li><a href="#">Gucci</a></li>
+											<li><a href="#">Thức ăn dạng hạt</a></li>
+											<li><a href="#">Pate</a></li>
+											<li><a href="#">Sữa</a></li>
+											<li><a href="#">Bánh xương</a></li>									
 										</ul>
 									</div>
 								</div>
@@ -265,63 +220,44 @@
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#womens">
+										<a data-toggle="collapse" data-parent="#accordian" href="#SPVS">
 											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Womens
+											Sản Phẩm Vệ Sinh
 										</a>
 									</h4>
 								</div>
-								<div id="womens" class="panel-collapse collapse">
+								<div id="SPVS" class="panel-collapse collapse">
 									<div class="panel-body">
 										<ul>
-											<li><a href="#">Fendi</a></li>
-											<li><a href="#">Guess</a></li>
-											<li><a href="#">Valentino</a></li>
-											<li><a href="#">Dior</a></li>
-											<li><a href="#">Versace</a></li>
+											<li><a href="#">Cát Vệ Sinh</a></li>
+											<li><a href="#">Nhà Vệ Sinh</a></li>
 										</ul>
 									</div>
 								</div>
 							</div>
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Kids</a></h4>
+									<h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordian" href="#VD">
+											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
+											Vật Dụng
+										</a>
+									</h4>
 								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Fashion</a></h4>
+								<div id="VD" class="panel-collapse collapse">
+									<div class="panel-body">
+										<ul>
+											<li><a href="#">Balo</a></li>
+											<li><a href="#">Chuồng nuôi</a></li>
+											<li><a href="#">Quần áo</a></li>
+										</ul>
+									</div>
 								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Households</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Interiors</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Clothing</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Bags</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Shoes</a></h4>
-								</div>
-							</div>
+							</div>						
 						</div><!--/category-products-->
-					
+						
 						<div class="brands_products"><!--brands_products-->
-							<h2>Brands</h2>
+							<!-- <h2>Brands</h2>
 							<div class="brands-name">
 								<ul class="nav nav-pills nav-stacked">
 									<li><a href="#"> <span class="pull-right">(50)</span>Acne</a></li>
@@ -332,11 +268,11 @@
 									<li><a href="#"> <span class="pull-right">(9)</span>Boudestijn</a></li>
 									<li><a href="#"> <span class="pull-right">(4)</span>Rösch creative culture</a></li>
 								</ul>
-							</div>
+							</div> -->
 						</div><!--/brands_products-->
 						
 						<div class="price-range"><!--price-range-->
-							<h2>Price Range</h2>
+							<h2>Giá Sản Phẩm</h2>
 							<div class="well text-center">
 								 <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
 								 <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
@@ -359,7 +295,7 @@
 	</section>
 	
 	<footer id="footer"><!--Footer-->
-		<div class="footer-top">
+		<!-- <div class="footer-top">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-2">
@@ -503,13 +439,13 @@
 					
 				</div>
 			</div>
-		</div>
+		</div> -->
 		
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="row">
-					<p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
-					<p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
+					<p class="pull-left">Copyright © 2020 PET-SHOP.</p>
+					<!-- <p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p> -->
 				</div>
 			</div>
 		</div>
