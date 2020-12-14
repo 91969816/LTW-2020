@@ -60,9 +60,8 @@
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">																
 								<li><a href="#"><i class="fa fa-question"></i> Trợ Giúp</a></li>
-								<li><a href="#"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
-								<li><a href="#"><i class="fa fa-user"></i>Đăng Ký</a></li>
-								<li><a href="#"><i class="fa fa-sign-in"></i> Đăng Nhập</a></li>
+								<li><a href="#"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>								
+								<li><a href="{{URL::to('users_login')}}"><i class="fa fa-sign-in"></i> Đăng Nhập</a></li>
 							</ul>
 						</div>
 					</div>

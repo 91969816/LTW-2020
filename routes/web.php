@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 //front-end
 Route::get('/', 'App\Http\Controllers\HomeController@index');
+Route::get('users_login', 'App\Http\Controllers\Users_Login_Controller@index');
+Route::get('users_register', 'App\Http\Controllers\Users_Register_Controller@index');
 
 
 //back-end
