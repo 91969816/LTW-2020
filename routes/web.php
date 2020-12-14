@@ -27,7 +27,11 @@ Route::post('/admin-dashboard', 'App\Http\Controllers\AdminController@dashboard'
 <<<<<<< Updated upstream
 // Category Product
 Route::get('/add-category-product', 'App\Http\Controllers\CategoryProduct@add_category_product');
+<<<<<<< Updated upstream
 Route::get('/all-category-product', 'App\Http\Controllers\CategoryProduct@all-category-product');
 =======
 
+>>>>>>> Stashed changes
+=======
+Route::get('/all-category-product', 'App\Http\Controllers\CategoryProduct@all_category_product');
 >>>>>>> Stashed changes

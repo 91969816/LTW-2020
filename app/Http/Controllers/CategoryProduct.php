@@ -10,6 +10,6 @@ class CategoryProduct extends Controller
         return view('admin.add_category_product');
     }
     public function all_category_product(){
-        
+        return view('admin.all_category_product');
     }
 }
