@@ -2519,5 +2519,9 @@ h2.title {
 .contact-info .social-networks ul li a:hover{
   color: #FE980F;
 }
-
+.footer-widgets {
+  padding: 30px 20px;
+  background-color: #fdb45e;
+  float: left;
+}
 

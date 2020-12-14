@@ -53,7 +53,7 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="index.html"><img src="{{('public/frontend/images/pet-shop-logo.jpg')}}" class="img-responsive" alt="" style="width:150px;height:150px;"/></a>
+							<a href="{{URL::to('/')}}"><img src="{{('public/frontend/images/pet-shop-logo.jpg')}}" class="img-responsive" alt="" style="width:150px;height:150px;"/></a>
 						</div>						
 					</div>
 					<div class="col-sm-8">
@@ -294,7 +294,8 @@
 	</section>
 	
 	<footer id="footer"><!--Footer-->
-		<!-- <div class="footer-top">
+		
+		 <!-- <div class="footer-top">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-2">
@@ -372,9 +373,9 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 		
-		<div class="footer-widget">
+		<!-- <div class="footer-widget">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-2">
@@ -438,18 +439,74 @@
 					
 				</div>
 			</div>
-		</div> -->
-		
-		<div class="footer-bottom">
-			<div class="container">
-				<div class="row">
-					<p class="pull-left">Copyright © 2020 PET-SHOP.</p>
-					<!-- <p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p> -->
+		</div>  -->
+		<div class="footer-widgets tp_footer">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="hotline-box col-lg-6 col-md-6 col-sm-6 col-xs-6">
+					<div class="hotline-contact">
+						<p style="text-align:center;">
+							<span style="font-size:15px;">
+								<span style="font-size:15px;">
+									<strong>							
+										<span style="color:#FFFFFF;"><span style="text-align:center;text-indent:10px;">MUA HÀNG TRỰC TUYẾN</span></span>
+									</strong>							
+								</span><br style="font-size:15px;text-align:center;text-indent:10px;">
+								<strong>
+									<span style="font-size:16px;">
+										<span style="color:#FFFFFF;"><span style="text-align:center;text-indent:10px;">1900 633 501 - 1</span></span>
+									</span>
+								</strong>
+								<br style="font-size:15px;text-align:center;text-indent:10px;">
+								<a style="font-size:15px;text-align:center;text-indent:10px;">
+									<strong>
+										<span>sale.petshop@gmail.com</span>
+									</strong>							
+								</a>
+							</span>
+						</p>
+					</div>
+				</div>
+			
+				<div class="hotline-box col-lg-6 col-md-6 col-sm-6 col-xs-6">
+					<div class="hotline-contact">
+						<p style="text-align:center;">
+							<span style="font-size:15px;">
+								<span style="font-size:15px;">
+									<strong>							
+										<span style="color:#FFFFFF;"><span style="text-align:center;text-indent:10px;">CHĂM SÓC KHÁCH HÀNG</span></span>
+									</strong>							
+								</span><br style="font-size:15px;text-align:center;text-indent:10px;">
+								<strong>
+									<span style="font-size:16px;">
+										<span style="color:#FFFFFF;"><span style="text-align:center;text-indent:10px;">1900 633 501 - 2</span></span>
+									</span>
+								</strong><br style="font-size:15px;text-align:center;text-indent:10px;">
+								<a style="font-size:15px;text-align:center;text-indent:10px;">
+									<strong>
+										<span>cskh.petshop@gmail.com</span>
+									</strong>							
+								</a>
+							</span>
+						</p>
+					</div>
 				</div>
 			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				
+				<div class="container">
+							<div class="row">
+								<span style="color:#FFFFFF;">
+									<span style="text-align:center;text-indent:10px;">
+										<strong> 
+											<p>Địa chỉ 1824 Lê Văn Lương Xã Nhơn Đức , Huyện Nhà Bè , TP.Hồ Chí Minh<p>
+										</strong>
+									</span>
+								</span>	<!-- <p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p> -->
+							</div>
+				</div>		
+			</div>
 		</div>
-		
-	</footer><!--/Footer-->
+	</footer>
 	
 
   
