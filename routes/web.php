@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 //front-end
 Route::get('/', 'App\Http\Controllers\HomeController@index');
-Route::get('users_login', 'App\Http\Controllers\Users_Login_Controller@index');
-Route::get('users_register', 'App\Http\Controllers\Users_Register_Controller@index');
+Route::get('/users_login', 'App\Http\Controllers\UserController@index');
+Route::get('/users_register', 'App\Http\Controllers\UserController@index_register');
 
 
 //back-end
@@ -24,6 +24,10 @@ Route::get('/dashboard', 'App\Http\Controllers\AdminController@show_dashboard');
 
 Route::get('/logout', 'App\Http\Controllers\AdminController@logout');
 Route::post('/admin-dashboard', 'App\Http\Controllers\AdminController@dashboard');
+<<<<<<< Updated upstream
 // Category Product
 Route::get('/add-category-product', 'App\Http\Controllers\CategoryProduct@add_category_product');
 Route::get('/all-category-product', 'App\Http\Controllers\CategoryProduct@all-category-product');
+=======
+
+>>>>>>> Stashed changes
