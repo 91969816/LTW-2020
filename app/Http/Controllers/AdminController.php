@@ -8,6 +8,7 @@ use App\Models\Admin;
 use Session;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
+session_start();
 class AdminController extends Controller
 {
     public function index(){

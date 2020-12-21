@@ -29,3 +29,4 @@ Route::get('/add-category-product', 'App\Http\Controllers\CategoryProduct@add_ca
 
 Route::get('/all-category-product', 'App\Http\Controllers\CategoryProduct@all_category_product');
 
+Route::post('/save-category-product', 'App\Http\Controllers\CategoryProduct@save_category_product');
