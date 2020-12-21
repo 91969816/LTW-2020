@@ -20,7 +20,7 @@ class UserController extends Controller
     }
     function register()
     {
-
+        
     }
     function logout()
     {

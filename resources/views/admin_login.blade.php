@@ -47,7 +47,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="clearfix"></div>
 				<input type="submit" value="Đăng Nhập" name="login">
 		</form>
-		<p>Chưa Có Tài Khoản ?<a href="registration.html">Đăng ký</a></p>
 </div>
 </div>
 <script src="{{asset('public/backend/js/bootstrap.js')}}"></script>

@@ -38,13 +38,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         Session::put('message',null);
     }
     ?>
-		<form action="{{URL::to('/admin-dashboard')}}" method="post">
-            <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
-            <input type="username" class="ggg" name="admin_email" placeholder="USERNAME" required="">
-            <input type="phone" class="ggg" name="admin_email" placeholder="PHONE" required="">
-			<input type="email" class="ggg" name="admin_email" placeholder="E-MAIL" required="">
-			<input type="password" class="ggg" name="admin_password" placeholder="PASSWORD" required="">				
-			<input type="submit" value="Đăng Ký" name="login">
+		<form  action = "{{URL::to('save-register-list')}}" method="post">
+            <!-- <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" /> -->                       
+            <input type="email" class="ggg" name="customers_email" placeholder="E-MAIL" required="">
+            <input type="password" class="ggg" name="customers_password" placeholder="PASSWORD" required="">
+            <input type="name" class="ggg" name="customers_name" placeholder="USERNAME" required="">
+			<input type="phone" class="ggg" name="customers_phone" placeholder="PHONE" required="">				
+            <button type="submit" name = "register" class="btn btn-primary">Đăng Ký</button>
 		</form>		
 </div>
 </div>
