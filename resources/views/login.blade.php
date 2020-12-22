@@ -47,7 +47,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="clearfix"></div>
 				<input type="submit" value="Đăng Nhập" name="login">
 		</form>
-		<p>Chưa Có Tài Khoản ?<a href="{{URL::to('users_register')}}">Đăng ký</a></p>
+		<p>Chưa Có Tài Khoản ?<a href="{{URL::to('register')}}">Đăng ký</a></p>
         <!-- <li><a href="#"><i class="fa fa-facebook"></i></a></li>
 		<li><a href="#"><i class="fa fa-google-plus"></i></a></li> -->
 </div>

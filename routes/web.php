@@ -14,9 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 //front-end
 Route::get('/', 'App\Http\Controllers\HomeController@index');
-Route::get('/users_login', 'App\Http\Controllers\UserController@index');
-
-
 
 //back-end
 Route::get('/admin', 'App\Http\Controllers\AdminController@index');
@@ -30,9 +27,12 @@ Route::get('/add-category-product', 'App\Http\Controllers\CategoryProduct@add_ca
 Route::get('/all-category-product', 'App\Http\Controllers\CategoryProduct@all_category_product');
 
 Route::post('/save-category-product', 'App\Http\Controllers\CategoryProduct@save_category_product');
+// Customer 
 
+
+Route::get('/login', 'App\Http\Controllers\CustomersController@index_login');
+Route::get('/register', 'App\Http\Controllers\CustomersController@index_register');
 Route::post('/save-register-list', 'App\Http\Controllers\CustomersController@save_register_list');
-Route::get('/users_register', 'App\Http\Controllers\CustomersController@index_register');
 
 
 

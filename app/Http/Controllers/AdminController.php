@@ -24,8 +24,8 @@ class AdminController extends Controller
         $admin= Admin::where('admin_email',$data['admin_email'])->first();
        if(md5($data['admin_password'])==$admin->admin_password)
        {
-        Session::put('admin_name', $result->admin_name);
-        Session::put('admin_id',$result->admin_id);
+        Session::put('admin_name', $admin->admin_name);
+        Session::put('admin_id',$admin->admin_id);
         return Redirect::to('dashboard');
        }else{
             Session::put('message','Mật khẩu hoặc tài khoản sai!!!');
