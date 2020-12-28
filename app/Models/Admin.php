@@ -16,11 +16,7 @@ class Admin extends Model
     protected $primaryKey = 'admin_id';
     protected $table ='tbl_admin';
 
-    public function findByEmail($email)
-    {
-        $admin = Admin::where('admin_email',$email)->first();
-        return $admin;
-    }
+
 
 
 }
