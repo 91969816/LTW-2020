@@ -27,6 +27,14 @@
       </div>
     </div>
     <div class="table-responsive">
+    <?php
+                            $message = Session::get('message');
+                            if($message)
+                            {
+                                echo $message ;
+                                Session::put('message',null);
+                            }
+                            ?>
       <table class="table table-striped b-t b-light">
         <thead>
           <tr>
@@ -47,15 +55,15 @@
             <td>{{$cate_pro->category_name}}</td>
             <td><span class="text-ellipsis">
               <?php
-                if($cate_pro->category_status ==0)
-                {
-                  echo 'Ẩn';
-                }
-
-                else
-                {
-                  echo 'Hiển thị';
-                }
+                if($cate_pro->category_status ==0){
+                  ?>
+                    <a href = "{{URL::to('/unactive-category-product/'.$cate_pro->category_id)}}"><span class = " fa-thumb-styling fa fa-thumbs-up"></span></a>';
+                  <?php
+                    }else{
+                  ?>
+                    <a href = "{{URL::to('/active-category-product/'.$cate_pro->category_id)}}"><span class = "fa-thumb-styling fa fa-thumbs-down"></span></a>;
+                  <?php
+                    }
               ?>
             </span></td>
             <td>
