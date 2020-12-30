@@ -31,4 +31,39 @@ class CategoryProduct extends Controller
         Session::put('message','Thêm danh mục sản phẩm thành công');
         return Redirect::to('add-category-product');
     }
+
+    public function unactive_category_product($category_product_id){
+        $unactive_category_product = CategoryProducts::find($category_product_id);
+        $unactive_category_product->category_status = 1;
+        $unactive_category_product->save();
+        Session::put('message','Không kích hoạt danh mục sản phẩm thành công');
+        return Redirect::to('all-category-product');
+    }
+
+    public function active_category_product($category_product_id){
+        
+        $active_category_product = CategoryProducts::find($category_product_id);
+        $active_category_product->category_status = 0;
+        $active_category_product->save();
+
+        Session::put('message','Kích hoạt danh mục sản phẩm thành công');
+        return Redirect::to('all-category-product');
+    }
+    public function edit_category_product($category_product_id){
+        $edit_category_product = CategoryProducts::find($category_product_id)->get();
+   
+        $manager_category_product = view('admin.edit_category_product')->with('edit_category_product',$edit_category_product);
+        return view('admin_layout') ->with('admin.edit_category_product',$manager_category_product);
+    }
+
+    public function update_category_product(Request $request,$category_product_id){
+        $data = $request->all(); //array();
+        $category = CategoryProducts::find($category_product_id);
+        $category->category_name = $data ['category_product_name'];
+        $category->category_desc= $data ['category_product_desc'];
+        $category->save();
+        Session::put('message','Cập nhật danh mục sản phẩm thành công');
+        return Redirect::to('all-category-product');
+    }
+    
 }

@@ -24,15 +24,24 @@ Route::post('/admin-dashboard', 'App\Http\Controllers\AdminController@dashboard'
 // Category Product
 Route::get('/add-category-product', 'App\Http\Controllers\CategoryProduct@add_category_product');
 
+Route::get('/edit-category-product/{category_product_id}', 'App\Http\Controllers\CategoryProduct@edit_category_product');
+Route::get('/delete-category-product/{category_product_id}', 'App\Http\Controllers\CategoryProduct@delete_category_product');
+
 Route::get('/all-category-product', 'App\Http\Controllers\CategoryProduct@all_category_product');
 
-Route::post('/save-category-product', 'App\Http\Controllers\CategoryProduct@save_category_product');
-// Customer 
+Route::get('/unactive-category-product/{category_product_id}', 'App\Http\Controllers\CategoryProduct@unactive_category_product');
+Route::get('/active-category-product/{category_product_id}', 'App\Http\Controllers\CategoryProduct@active_category_product');
 
+Route::post('/save-category-product', 'App\Http\Controllers\CategoryProduct@save_category_product');
+
+Route::post('/update-category-product/{category_product_id}', 'App\Http\Controllers\CategoryProduct@update_category_product');
+
+// Customer 
 
 Route::get('/login', 'App\Http\Controllers\CustomersController@index_login');
 Route::get('/register', 'App\Http\Controllers\CustomersController@index_register');
 Route::post('/save-register-list', 'App\Http\Controllers\CustomersController@save_register_list');
+
 
 
 

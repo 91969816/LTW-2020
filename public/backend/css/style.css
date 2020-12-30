@@ -48,6 +48,20 @@ body a:hover{
     -o-transition:all .3s ease-in-out;
     transition:all .3s ease-in-out;
 }
+
+span.fa-thumb-styling.fa.fa-thumbs-down{
+    font-size:28px;
+    color:red;
+}
+
+a.active.styling-edit{
+    font-size: 20px;
+}
+
+span.fa-thumb-styling.fa.fa-thumbs-up{
+    font-size:28px;
+    color:greenyellow;
+}
 #sidebar ul li {
     position: relative;
 }
