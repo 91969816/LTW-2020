@@ -14,11 +14,12 @@ class CreateTblCustomers extends Migration
     public function up()
     {
         Schema::create('tbl_customers', function (Blueprint $table) {
-            $table->increments('customers_id');
-            $table->string('customers_email',100);
-            $table->string('customers_password');
-            $table->string('customers_name');
-            $table->string('customers_phone');
+            $table->increments('customer_id');
+            $table->string('customer_email',100);
+            $table->string('customer_password');
+            $table->string('customer_name');
+            $table->string('customer_phone');
+            $table->string('customer_token')->nullable();
             $table->timestamps();
         });
     }

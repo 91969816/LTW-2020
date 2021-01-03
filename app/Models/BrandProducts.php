@@ -5,16 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Customers extends Model
+class BrandProducts extends Model
 {
     use HasFactory;
-
     public $timestamps =false;
 
     protected $fillable = [
-        'customer_email','customer_password','customer_name','customer_phone','customer_token'
+        'brand_name','brand_desc','brand_status'
     ];
-
-    protected $primaryKey = 'customer_id';
-    protected $table = 'tbl_customers';
+    protected $primaryKey = 'brand_id';
+    protected $table = 'tbl_brand';
 }

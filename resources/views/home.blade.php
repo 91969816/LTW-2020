@@ -16,7 +16,7 @@
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
-    <![endif]-->       
+    <![endif]-->
     <link rel="shortcut icon" href="{{('public/frontend/images/ico/favicon.ico')}}">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
@@ -47,28 +47,52 @@
 				</div>
 			</div>
 		</div><!--/header_top-->
-		
+
 		<div class="header-middle"><!--header-middle-->
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
 							<a href="{{URL::to('/')}}"><img src="{{('public/frontend/images/pet-shop-logo.jpg')}}" class="img-responsive" alt="" style="width:150px;height:150px;"/></a>
-						</div>						
+						</div>
 					</div>
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
-							<ul class="nav navbar-nav">																
+							<ul class="nav navbar-nav">
 								<li><a href="#"><i class="fa fa-question"></i> Trợ Giúp</a></li>
-								<li><a href="#"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>								
+								<li><a href="#"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+                                <?php
+                                 $name = Session::get('customer_name');
+                                 if($name): ?>
+
+                                <li class="dropdown">
+                                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                        <img alt="" src="{{('public/backend/images/2.png')}}">
+                                        <span class="username">
+                                        <?php
+
+                                            echo $name ;
+                                        ?>
+                                        </span>
+                                        <b class="caret"></b>
+                                    </a>
+                                    <ul class="dropdown-menu extended logout">
+                                        <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
+                                        <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+                                        <li><a href="{{URL::to('logout')}}"><i class="fa fa-key"></i>Đăng Xuất</a></li>
+                                    </ul>
+                                </li>
+                                <?php else: ?>
 								<li><a href="{{URL::to('login')}}"><i class="fa fa-sign-in"></i> Đăng Nhập</a></li>
+                                <li><a href="{{URL::to('register')}}"><i class="fa fa-sign-in"></i> Đăng Ký</a></li>
+                                <?php endif; ?>
 							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div><!--/header-middle-->
-	
+
 		<div class="header-bottom"><!--header-bottom-->
 			<div class="container">
 				<div class="row">
@@ -87,19 +111,19 @@
 								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="shop.html">Products</a></li>
-										<li><a href="product-details.html">Product Details</a></li> 
-										<li><a href="checkout.html">Checkout</a></li> 
-										<li><a href="cart.html">Cart</a></li> 
-										<li><a href="login.html">Login</a></li> 
+										<li><a href="product-details.html">Product Details</a></li>
+										<li><a href="checkout.html">Checkout</a></li>
+										<li><a href="cart.html">Cart</a></li>
+										<li><a href="login.html">Login</a></li>
                                     </ul>
-                                </li> 
+                                </li>
 								<li class="dropdown"><a href="#">Diễn Đàn<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="#">Cách Chăm Sóc Mèo</a></li>
 										<li><a href="#">Tìm Hiểu Về Mèo</a></li>
                                     </ul>
-                                </li> 
-								
+                                </li>
+
 								<li><a href="contact-us.html">Liên Hệ | Đặt Hàng</a></li>
 							</ul>
 						</div>
@@ -113,7 +137,7 @@
 			</div>
 		</div><!--/header-bottom-->
 	</header><!--/header-->
-	
+
 	<section id="slider"><!--slider-->
 		<div class="container">
 			<div class="row">
@@ -124,36 +148,38 @@
 							<li data-target="#slider-carousel" data-slide-to="1"></li>
 							<li data-target="#slider-carousel" data-slide-to="2"></li>
 						</ol>
-						
+
 						<div class="carousel-inner">
 							<div class="item active">
-								<div class="col-sm-10">									
+								<div class="col-sm-10">
 									<h1><span>Mèo Bangdal</span></h1>
-									<img src="imagesCat/meo-bengal.jpg" class="girl img-responsive" alt="" />									
-									<p>Xuất hiện vào thế kỷ 19 ở Mỹ, mèo Bengal là kết quả lai chéo giữa mèo nhà Mỹ và mèo báo châu Á. Cái tên “Bengal” lấy họ từ mèo Felis Bengalensis và giống mèo này được phát triển giống những loài mèo hoang, mèo rừng như: Mèo gấm ocelots, báo hoa mai, báo gấm, mèo đốm margays.</p>				
-									<button type="button" class="btn btn-default get">Thông Tin Sản Phẩm</button> 								
-								</div>								
+									<img src="imagesCat/meo-bengal.jpg" class="girl img-responsive" alt="" />
+									<p>Xuất hiện vào thế kỷ 19 ở Mỹ, mèo Bengal là kết quả lai chéo giữa mèo nhà Mỹ và mèo báo châu Á. Cái tên “Bengal” lấy họ từ mèo Felis Bengalensis và giống mèo này được phát triển giống những loài mèo hoang, mèo rừng như: Mèo gấm ocelots, báo hoa mai, báo gấm, mèo đốm margays.</p>
+									<button type="button" class="btn btn-default get">Thông Tin Sản Phẩm</button>
+								</div>
 							</div>
 							<div class="item">
 								<div class="col-sm-10">
 									<h1><span>Mèo Ragdoll</span></h1>
-									<img src="imagesCat/meo-ragdoll.jpg" class="girl img-responsive" alt="" />									
+									<img src="imagesCat/meo-ragdoll.jpg" class="girl img-responsive" alt="" />
 									<p>Mèo Ragdoll là tên một giống mèo với đôi mắt màu xanh dương và bộ lông hai màu tương phản đặc trưng. Nó là giống mèo to lớn, với cơ bắp rắn chắc và bộ lông mềm mại và hơi dài.Chúng cũng được biết đến là giống mèo hiền lành, dễ bảo và dễ thương. Mèo Ragdoll được một người gây giống Hoa Kỳ tên là Ann Baker phát triển, và cái tên Ragdoll xuất phát từ thói quen rũ người ra và thả lỏng cơ thể khi được bế lên của các cá thể mèo đời đầu tiên.</p>
 									<button type="button" class="btn btn-default get">Thông Tin Sản Phẩm</button>
 								</div>
 							</div>
-							
+
 							<div class="item">
 								<div class="col-sm-10">
 								<h1><span>Mèo Sphynx</span></h1>
-									<img src="imagesCat/meo-Sphynx.jpg" class="girl img-responsive" alt="" />									
+									<img src="imagesCat/meo-Sphynx.jpg" class="girl img-responsive" alt="" />
 									<p>Người ta gọi mèo Sphynx là mèo Ai Cập không phải vì Sphynx có nguồn gốc từ mảnh đất sinh ra các Pharaoh mà bởi vì ngoại hình của nó. Ban đầu người ta chỉ gọi là mèo không lông. Nhưng vì ngoại hình của chúng khá giống với bức tượng nhân sư ở Ai Cập nên cái tên mèo Ai Cập, mèo nhân sư ra đời.</p>
 									<button type="button" class="btn btn-default get">Thông Tin Sản Phẩm</button>
-								</div>						
+								</div>
 							</div>
-							
+
+
+
 						</div>
-						
+
 						<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
 							<i class="fa fa-angle-left"></i>
 						</a>
@@ -161,12 +187,12 @@
 							<i class="fa fa-angle-right"></i>
 						</a>
 					</div>
-					
+
 				</div>
 			</div>
 		</div>
 	</section><!--/slider-->
-	
+
 	<section>
 		<div class="container">
 			<div class="row">
@@ -210,12 +236,12 @@
 											<li><a href="#">Thức ăn dạng hạt</a></li>
 											<li><a href="#">Pate</a></li>
 											<li><a href="#">Sữa</a></li>
-											<li><a href="#">Bánh xương</a></li>									
+											<li><a href="#">Bánh xương</a></li>
 										</ul>
 									</div>
 								</div>
 							</div>
-							
+
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h4 class="panel-title">
@@ -252,9 +278,9 @@
 										</ul>
 									</div>
 								</div>
-							</div>						
+							</div>
 						</div><!--/category-products-->
-						
+
 						<div class="brands_products"><!--brands_products-->
 							<!-- <h2>Brands</h2>
 							<div class="brands-name">
@@ -269,7 +295,7 @@
 								</ul>
 							</div> -->
 						</div><!--/brands_products-->
-						
+
 						<div class="price-range"><!--price-range-->
 							<h2>Giá Sản Phẩm</h2>
 							<div class="well text-center">
@@ -277,24 +303,24 @@
 								 <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
 							</div>
 						</div><!--/price-range-->
-						
+
 						<div class="shipping text-center"><!--shipping-->
 							<img src="images/home/shipping.jpg" alt="" />
 						</div><!--/shipping-->
-					
+
 					</div>
 				</div>
 				<!--CODE HIEN THI SAN PHAM-->
 				<div class="col-sm-9 padding-right">
 						@yield('content')
-					
+
 				</div>
 			</div>
 		</div>
 	</section>
-	
+
 	<footer id="footer"><!--Footer-->
-		
+
 		 <!-- <div class="footer-top">
 			<div class="container">
 				<div class="row">
@@ -319,7 +345,7 @@
 								<h2>24 DEC 2014</h2>
 							</div>
 						</div>
-						
+
 						<div class="col-sm-3">
 							<div class="video-gallery text-center">
 								<a href="#">
@@ -334,7 +360,7 @@
 								<h2>24 DEC 2014</h2>
 							</div>
 						</div>
-						
+
 						<div class="col-sm-3">
 							<div class="video-gallery text-center">
 								<a href="#">
@@ -349,7 +375,7 @@
 								<h2>24 DEC 2014</h2>
 							</div>
 						</div>
-						
+
 						<div class="col-sm-3">
 							<div class="video-gallery text-center">
 								<a href="#">
@@ -374,7 +400,7 @@
 				</div>
 			</div>
 		</div> -->
-		
+
 		<!-- <div class="footer-widget">
 			<div class="container">
 				<div class="row">
@@ -436,7 +462,7 @@
 							</form>
 						</div>
 					</div>
-					
+
 				</div>
 			</div>
 		</div>  -->
@@ -447,9 +473,9 @@
 						<p style="text-align:center;">
 							<span style="font-size:15px;">
 								<span style="font-size:15px;">
-									<strong>							
+									<strong>
 										<span style="color:#FFFFFF;"><span style="text-align:center;text-indent:10px;">MUA HÀNG TRỰC TUYẾN</span></span>
-									</strong>							
+									</strong>
 								</span><br style="font-size:15px;text-align:center;text-indent:10px;">
 								<strong>
 									<span style="font-size:16px;">
@@ -460,21 +486,21 @@
 								<a style="font-size:15px;text-align:center;text-indent:10px;">
 									<strong>
 										<span>sale.petshop@gmail.com</span>
-									</strong>							
+									</strong>
 								</a>
 							</span>
 						</p>
 					</div>
 				</div>
-			
+
 				<div class="hotline-box col-lg-6 col-md-6 col-sm-6 col-xs-6">
 					<div class="hotline-contact">
 						<p style="text-align:center;">
 							<span style="font-size:15px;">
 								<span style="font-size:15px;">
-									<strong>							
+									<strong>
 										<span style="color:#FFFFFF;"><span style="text-align:center;text-indent:10px;">CHĂM SÓC KHÁCH HÀNG</span></span>
-									</strong>							
+									</strong>
 								</span><br style="font-size:15px;text-align:center;text-indent:10px;">
 								<strong>
 									<span style="font-size:16px;">
@@ -484,7 +510,7 @@
 								<a style="font-size:15px;text-align:center;text-indent:10px;">
 									<strong>
 										<span>cskh.petshop@gmail.com</span>
-									</strong>							
+									</strong>
 								</a>
 							</span>
 						</p>
@@ -492,24 +518,24 @@
 				</div>
 			</div>
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-				
+
 				<div class="container">
 							<div class="row">
 								<span style="color:#FFFFFF;">
 									<span style="text-align:center;text-indent:10px;">
-										<strong> 
+										<strong>
 											<p>Địa chỉ 1824 Lê Văn Lương Xã Nhơn Đức , Huyện Nhà Bè , TP.Hồ Chí Minh<p>
 										</strong>
 									</span>
 								</span>	<!-- <p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p> -->
 							</div>
-				</div>		
+				</div>
 			</div>
 		</div>
 	</footer>
-	
 
-  
+
+
     <script src="{{asset('public/frontend/js/jquery.js')}}"></script>
 	<script src="{{asset('public/frontend/js/bootstrap.min.js')}}"></script>
 	<script src="{{asset('public/frontend/js/jquery.scrollUp.min.js')}}"></script>
