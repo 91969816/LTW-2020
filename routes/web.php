@@ -19,7 +19,7 @@ Route::get('/', 'App\Http\Controllers\HomeController@index');
 Route::get('/admin', 'App\Http\Controllers\AdminController@index');
 Route::get('/dashboard', 'App\Http\Controllers\AdminController@show_dashboard');
 
-Route::get('/admin-logout', 'App\Http\Controllers\AdminController@logout');
+Route::get('/logout', 'App\Http\Controllers\AdminController@logout');
 Route::post('/admin-dashboard', 'App\Http\Controllers\AdminController@dashboard');
 // Category Product
 Route::get('/add-category-product', 'App\Http\Controllers\CategoryProduct@add_category_product');
@@ -52,13 +52,8 @@ Route::post('/save-product', 'App\Http\Controllers\ProductController@save_produc
 Route::post('/update-product/{product_id}', 'App\Http\Controllers\ProductController@update_product');
 // Custome
 Route::get('/login', 'App\Http\Controllers\CustomersController@index_login');
-Route::post('/login', 'App\Http\Controllers\CustomersController@login');
-
 Route::get('/register', 'App\Http\Controllers\CustomersController@index_register');
 Route::post('/save-register-list', 'App\Http\Controllers\CustomersController@save_register_list');
-Route::get('/logout', 'App\Http\Controllers\CustomersController@logout');
-
-Route::get('/verify', 'App\Http\Controllers\CustomersController@verify');
 
 
 

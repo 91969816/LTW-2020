@@ -60,14 +60,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     echo $name ;
                     Session::put('message',null);
                 }
-                ?>
+    ?>
                 </span>
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">
                 <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
                 <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-                <li><a href="{{URL::to('admin-logout')}}"><i class="fa fa-key"></i>Đăng Xuất</a></li>
+                <li><a href="{{URL::to('logout')}}"><i class="fa fa-key"></i>Đăng Xuất</a></li>
             </ul>
         </li>
         <!-- user login dropdown end -->
