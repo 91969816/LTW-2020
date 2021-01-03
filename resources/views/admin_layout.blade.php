@@ -60,14 +60,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     echo $name ;
                     Session::put('message',null);
                 }
-    ?>
+                ?>
                 </span>
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">
                 <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
                 <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-                <li><a href="{{URL::to('logout')}}"><i class="fa fa-key"></i>Đăng Xuất</a></li>
+                <li><a href="{{URL::to('admin-logout')}}"><i class="fa fa-key"></i>Đăng Xuất</a></li>
             </ul>
         </li>
         <!-- user login dropdown end -->
@@ -99,6 +99,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a href="{{URL::to('/add-category-product')}}">Thêm danh mục</a></li>
 						<li><a href="{{URL::to('/all-category-product')}}">Liệt kê danh mục</a></li>
                         <!-- <li><a href="grids.html">Grids</a></li> -->
+                    </ul>
+                </li>
+				<li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Thương hiệu sản phẩm </span>
+                    </a>
+                    <ul class="sub">
+						<li><a href="{{URL::to('/add-brand-product')}}">Thêm Thương hiệu sản phẩm</a></li>
+						<li><a href="{{URL::to('/all-brand-product')}}">Liệt kê Thương hiệu sản phẩm</a></li>
+                        <!-- <li><a href="grids.html">Grids</a></li> -->
+                    </ul>
+                </li>
+                </li>
+				<li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Sản phẩm </span>
+                    </a>
+                    <ul class="sub">
+						<li><a href="{{URL::to('/add-product')}}">Thêm sản phẩm</a></li>
+						<li><a href="{{URL::to('/all-product')}}">Liệt kê sản phẩm</a></li>
+                        <!-- <li><a href="grids.html">Grids</a></li> --
                     </ul>
                 </li>
             </ul>            </div>
