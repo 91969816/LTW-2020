@@ -21,7 +21,7 @@ class ProductController extends Controller
         $all_product = DB::table('tbl_product')
         ->join('tbl_category_product','tbl_category_product.category_id','=','tbl_product.category_id')
         ->join('tbl_brand','tbl_brand.brand_id','=','tbl_product.brand_id')
-        ->orderby('tbl_product.product_id','desc')->get(); 
+        ->orderby('tbl_product.product_id','desc')->get();
         $manager_product = view('admin.all_product')->with('all_product',$all_product);
         return view('admin_layout') ->with('admin.all_product',$manager_product);
     }
@@ -36,17 +36,17 @@ class ProductController extends Controller
         $product->category_id = $data ['product_cate'];
         $product->brand_id = $data ['product_brand'];
         $product->product_status= $data ['product_status'];
-        // $get_image = $product-> file('product_image');
-        // if($get_image)
-        // {
-        //     $new_image = rand(0,99).'.'.$get_image->getClientOriginalExtension();
-        //     $get_image ->move('public/uploads/product',$new_image);
-        //     $data['product_image']=$new_image;
-        //     $product->save();
-        //     Session::put('message','Thêm danh mục sản phẩm thành công');
-        //     return Redirect::to('add-product');
-        // }
-        // $data['product_image']='';
+        $get_image = $request->file('product_image');
+        if($get_image)
+        {
+            $new_image = rand(0,99).'.'.$get_image->getClientOriginalExtension();
+            $get_image->move('public/uploads/product',$new_image);
+            $product['product_image']=$new_image;
+            $product->save();
+            Session::put('message','Thêm danh mục sản phẩm thành công');
+            return Redirect::to('add-product');
+        }
+        $product['product_image']='';
         $product->save();
         Session::put('message','Thêm danh mục sản phẩm thành công');
         return Redirect::to('add-product');
@@ -61,7 +61,7 @@ class ProductController extends Controller
     }
 
     public function active_product($product_id){
-        
+
         $active_product = Products::find($product_id);
         $active_product->product_status = 0;
         $active_product->save();
@@ -89,7 +89,7 @@ class ProductController extends Controller
         Session::put('message','Cập nhật danh mục sản phẩm thành công');
         return Redirect::to('all-product');
     }
-    
+
     public function delete_brand_product($brand_product_id)
     {
 	DB::table('tbl_brand_product')->where('brand_id',$brand_product_id)->delete();

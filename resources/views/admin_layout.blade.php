@@ -104,7 +104,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-book"></i>
-<<<<<<< Updated upstream
                         <span>Thương hiệu sản phẩm </span>
                     </a>
                     <ul class="sub">
@@ -124,31 +123,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a href="{{URL::to('/all-product')}}">Liệt kê sản phẩm</a></li>
                         <!-- <li><a href="grids.html">Grids</a></li> -->
 					</ul>
-				</li>	
+				</li>
         <!--sidebar menu end-->
-=======
-                        <span>Danh mục sản phẩm</span>
-                    </a>
-                    <ul class="sub">
-						<li><a href="{{URL::to('/add-brand-product')}}">Thêm thương hiệu</a></li>
-						<li><a href="{{URL::to('/all-brand-product')}}">Liệt kê thương hiệu</a></li>
-                        <!-- <li><a href="grids.html">Grids</a></li> -->
-                    </ul>
-                </li>
-				<li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-book"></i>
-                        <span>Danh mục sản phẩm</span>
-                    </a>
-                    <ul class="sub">
-						<li><a href="{{URL::to('/add-category-product')}}">Thêm danh mục</a></li>
-						<li><a href="{{URL::to('/all-category-product')}}">Liệt kê danh mục</a></li>
-                        <!-- <li><a href="grids.html">Grids</a></li> -->
-                    </ul>
-                </li>
-            </ul>            </div>
-        <!-- sidebar menu end-->
->>>>>>> Stashed changes
     </div>
 </aside>
 <!--sidebar end-->

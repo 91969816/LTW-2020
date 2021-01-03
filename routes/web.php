@@ -50,7 +50,7 @@ Route::get('/unactive-product/{product_id}', 'App\Http\Controllers\ProductContro
 Route::get('/active-product/{product_id}', 'App\Http\Controllers\ProductController@active_product');
 Route::post('/save-product', 'App\Http\Controllers\ProductController@save_product');
 Route::post('/update-product/{product_id}', 'App\Http\Controllers\ProductController@update_product');
-// Custome
+// Customer
 Route::get('/login', 'App\Http\Controllers\CustomersController@index_login');
 Route::post('/login', 'App\Http\Controllers\CustomersController@login');
 
