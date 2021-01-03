@@ -38,10 +38,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         Session::put('message',null);
     }
     ?>
-		<form action="{{URL::to('/admin-dashboard')}}" method="post">
+		<form action="{{URL::to('/login')}}" method="post">
              <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
-			<input type="email" class="ggg" name="admin_email" placeholder="E-MAIL" required="">
-			<input type="password" class="ggg" name="admin_password" placeholder="PASSWORD" required="">
+			<input type="email" class="ggg" name="customer_email" placeholder="E-MAIL" required="">
+			<input type="password" class="ggg" name="customer_password" placeholder="PASSWORD" required="">
 			<span><input type="checkbox" />Lưu tài khoản</span>
 			<h6><a href="#">Quên Mật Khẩu?</a></h6>
 				<div class="clearfix"></div>
