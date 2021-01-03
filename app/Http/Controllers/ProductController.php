@@ -8,6 +8,7 @@ use Session;
 use App\Http\Requests;
 use App\Models\BrandProducts;
 use App\Models\Products;
+use Illuminate\Support\Facades\DB as FacadesDB;
 use Illuminate\Support\Facades\Redirect;
 session_start();
 class ProductController extends Controller
@@ -49,14 +50,14 @@ class ProductController extends Controller
         $product['product_image']='';
         $product->save();
         Session::put('message','Thêm danh mục sản phẩm thành công');
-        return Redirect::to('add-product');
+        return Redirect::to('all-product');
     }
 
     public function unactive_product($product_id){
         $unactive_product = Products::find($product_id);
         $unactive_product->product_status = 1;
         $unactive_product->save();
-        Session::put('message','Không kích hoạt danh mục sản phẩm thành công');
+        Session::put('message','Không kích hoạt sản phẩm thành công');
         return Redirect::to('all-product');
     }
 
@@ -66,7 +67,7 @@ class ProductController extends Controller
         $active_product->product_status = 0;
         $active_product->save();
 
-        Session::put('message','Kích hoạt danh mục sản phẩm thành công');
+        Session::put('message','Kích hoạt sản phẩm thành công');
         return Redirect::to('all-product');
     }
     public function edit_product($product_id){
@@ -80,20 +81,38 @@ class ProductController extends Controller
         return view('admin_layout') ->with('admin.edit_product',$manager_product);
     }
 
-    public function update_product(Request $request,$product_id){
-        $data = $request->all(); //array();
-        $brand = Products::find($product_id);
-        $brand->brand_name = $data ['product_name'];
-        $brand->brand_desc= $data ['product_desc'];
-        $brand->save();
-        Session::put('message','Cập nhật danh mục sản phẩm thành công');
+    public function update_product(Request $request,$product_id){   
+        $data = $request->all();
+        $product = Products::find($product_id);
+        $product->product_name = $data ['product_name'];
+        $product->product_price= $data ['product_price'];
+        $product->product_desc = $data ['product_desc'];
+        $product->product_content= $data ['product_content'];
+        $product->product_image=$data['product_image'];
+        $product->category_id = $data ['product_cate'];
+        $product->brand_id = $data ['product_brand'];
+        $product->product_status= $data ['product_status'];
+        $get_image = $product-> file('product_image');
+        if($get_image)
+        {
+            $get_name_image=$get_image->getClientOriginalExtension();
+            $name_image=current(explode('.',$get_name_image));
+            $new_image = rand(0,99).'.'.$get_image->getClientOriginalExtension();
+            $get_image ->move('public/uploads/product',$new_image);
+            $product['product_image']=$new_image;
+            $product->save(); 
+            Session::put('message','Thêm sản phẩm thành công');
+            return Redirect::to('all-product');
+        }
+        $product->save(); 
+        Session::put('message','Cập nhật sản phẩm thành công');
         return Redirect::to('all-product');
     }
 
-    public function delete_brand_product($brand_product_id)
+    public function delete_product($product_id)
     {
-	DB::table('tbl_brand_product')->where('brand_id',$brand_product_id)->delete();
-	Session::put('message','Xóa danh mục sản phẩm thành công');
-	return Redirect::to('all-brand-product');
+	DB::table('tbl_product')->where('product_id',$product_id)->delete();
+	Session::put('message','Xóa  sản phẩm thành công');
+	return Redirect::to('all-product');
     }
 }
