@@ -12,9 +12,9 @@ class Customers extends Model
     public $timestamps =false;
 
     protected $fillable = [
-        'customers_email','customers_password','customers_name','customers_phone'
+        'customer_email','customer_password','customer_name','customer_phone','customer_token'
     ];
 
-    protected $primaryKey = 'customers_id';
+    protected $primaryKey = 'customer_id';
     protected $table = 'tbl_customers';
 }

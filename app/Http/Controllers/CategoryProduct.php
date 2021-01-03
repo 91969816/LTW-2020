@@ -13,15 +13,30 @@ session_start();
 
 class CategoryProduct extends Controller
 {
+    public function AuthLogin()
+    {
+        $admin_id = Session::get('admin_id');
+        if($admin_id )
+        {
+            return Redirect::to('dashboard');
+        }else{
+           return Redirect::to('admin')->send();
+        }
+    }
+
     public function add_category_product(){
+        $this->AuthLogin();
         return view('admin.add_category_product');
     }
     public function all_category_product(){
+        $this->AuthLogin();
         $all_category_product = CategoryProducts::all();
         $manager_category_product = view('admin.all_category_product')->with('all_category_product',$all_category_product);
         return view('admin_layout') ->with('admin.all_category_product',$manager_category_product);
     }
     public function save_category_product(Request $request){
+
+        $this->AuthLogin();
         $data = $request->all();
         $category = new CategoryProducts;
         $category->category_name = $data ['category_product_name'];
@@ -33,6 +48,8 @@ class CategoryProduct extends Controller
     }
 
     public function unactive_category_product($category_product_id){
+
+        $this->AuthLogin();
         $unactive_category_product = CategoryProducts::find($category_product_id);
         $unactive_category_product->category_status = 1;
         $unactive_category_product->save();
@@ -41,7 +58,8 @@ class CategoryProduct extends Controller
     }
 
     public function active_category_product($category_product_id){
-        
+
+        $this->AuthLogin();
         $active_category_product = CategoryProducts::find($category_product_id);
         $active_category_product->category_status = 0;
         $active_category_product->save();
@@ -50,13 +68,15 @@ class CategoryProduct extends Controller
         return Redirect::to('all-category-product');
     }
     public function edit_category_product($category_product_id){
+        $this->AuthLogin();
         $edit_category_product = CategoryProducts::find($category_product_id)->get();
-   
+
         $manager_category_product = view('admin.edit_category_product')->with('edit_category_product',$edit_category_product);
         return view('admin_layout') ->with('admin.edit_category_product',$manager_category_product);
     }
 
     public function update_category_product(Request $request,$category_product_id){
+        $this->AuthLogin();
         $data = $request->all(); //array();
         $category = CategoryProducts::find($category_product_id);
         $category->category_name = $data ['category_product_name'];
@@ -65,12 +85,14 @@ class CategoryProduct extends Controller
         Session::put('message','Cập nhật danh mục sản phẩm thành công');
         return Redirect::to('all-category-product');
     }
-    
+
     public function delete_category_product($category_product_id)
     {
-	DB::table('tbl_category_product')->where('category_id',$category_product_id)->delete();
-	Session::put('message','Xóa danh mục sản phẩm thành công');
-	return Redirect::to('all-category-product');
+        $this->AuthLogin();
+        $category =CategoryProducts::findOrFail($category_product_id);
+        $category->delete();
+        Session::put('message','Xóa danh mục sản phẩm thành công');
+        return Redirect::to('all-category-product');
     }
 
 
