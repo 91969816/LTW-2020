@@ -75,7 +75,7 @@
                   ?>
             </span></td>
             <td>
-              <a href="{{URL::to('/edit-brand-product/'.$pro->product_id)}}" class="active styling-edit" ui-toggle-class="">
+              <a href="{{URL::to('/edit-product/'.$pro->product_id)}}" class="active styling-edit" ui-toggle-class="">
                 <i class="fa fa-pencil-square-o text-success text-active"></i></a>
               <a onclick="return confirm('Bạn có chắc chắn không?')" href="{{URL::to('/delete-brand-product/'.$pro->product_id)}}" class="active styling-edit" ui-toggle-class="">
                 <i class="fa fa-times text-danger text"></i></a>
