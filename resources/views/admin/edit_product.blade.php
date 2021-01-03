@@ -4,7 +4,7 @@
             <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            Thêm sản phẩm
+                            Cập nhật sản phẩm
                         </header>
                         <?php
                             $message = Session::get('message');
@@ -14,9 +14,10 @@
                                 Session::put('message',null);
                             }
                             ?>
-                        <div class="panel-body">                            
+                        <div class="panel-body">                           
                             <div class="position-center">
-                                <form role="form" action = "{{URL::to('save-product')}}" method = "post">
+                                @foreach($edit_product as $key => $pro)
+                                <form role="form" action = "{{URL::to('/update-product')}}" method = "post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Tên sản phẩm</label>
@@ -63,11 +64,10 @@
                                         <option value = "1">Hiển thị</option>
                                     </select>
                                 </div>
-                                <button type="submit" name = "add_product" class="btn btn-info">Thêm sản phẩm</button>
+                                <button type="submit" name = "add_product" class="btn btn-info">Cập nhật sản phẩm</button>
                             </form>
+                            @endforeach
                             </div>
-
                         </div>
                     </section>
-
 @endsection
