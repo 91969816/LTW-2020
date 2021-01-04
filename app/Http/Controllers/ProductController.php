@@ -13,12 +13,25 @@ use Illuminate\Support\Facades\Redirect;
 session_start();
 class ProductController extends Controller
 {
+
+    public function AuthLogin()
+    {
+        $admin_id = Session::get('admin_id');
+        if($admin_id )
+        {
+            return Redirect::to('dashboard');
+        }else{
+           return Redirect::to('admin')->send();
+        }
+    }
     public function add_product(){
+        $this->AuthLogin();
         $cate_product = DB::table('tbl_category_product')->orderby('category_id','desc')->get();
         $brand_product = DB::table('tbl_brand')->orderby('brand_id','desc')->get();
         return view('admin.add_product') ->with('cate_product',$cate_product)->with('brand_product',$brand_product);
     }
     public function all_product(){
+        $this->AuthLogin();
         $all_product = DB::table('tbl_product')
         ->join('tbl_category_product','tbl_category_product.category_id','=','tbl_product.category_id')
         ->join('tbl_brand','tbl_brand.brand_id','=','tbl_product.brand_id')
@@ -27,6 +40,7 @@ class ProductController extends Controller
         return view('admin_layout') ->with('admin.all_product',$manager_product);
     }
     public function save_product(Request $request){
+        $this->AuthLogin();
         $data = $request->all();
         $product = new Products();
         $product->product_name = $data ['product_name'];
@@ -54,6 +68,7 @@ class ProductController extends Controller
     }
 
     public function unactive_product($product_id){
+        $this->AuthLogin();
         $unactive_product = Products::find($product_id);
         $unactive_product->product_status = 1;
         $unactive_product->save();
@@ -62,7 +77,7 @@ class ProductController extends Controller
     }
 
     public function active_product($product_id){
-
+        $this->AuthLogin();
         $active_product = Products::find($product_id);
         $active_product->product_status = 0;
         $active_product->save();
@@ -71,6 +86,7 @@ class ProductController extends Controller
         return Redirect::to('all-product');
     }
     public function edit_product($product_id){
+        $this->AuthLogin();
         $edit_product = DB::table('tbl_product')->where('product_id',$product_id)->get();
         $cate_product = DB::table('tbl_category_product')->orderby('category_id','desc')->get();
         $brand_product = DB::table('tbl_brand')->orderby('brand_id','desc')->get();
@@ -81,18 +97,19 @@ class ProductController extends Controller
         return view('admin_layout') ->with('admin.edit_product',$manager_product);
     }
 
-    public function update_product(Request $request,$product_id){   
+    public function update_product(Request $request,$product_id){
+        $this->AuthLogin();
         $data = $request->all();
         $product = Products::find($product_id);
         $product->product_name = $data ['product_name'];
         $product->product_price= $data ['product_price'];
         $product->product_desc = $data ['product_desc'];
         $product->product_content= $data ['product_content'];
-        $product->product_image=$data['product_image'];
+
         $product->category_id = $data ['product_cate'];
         $product->brand_id = $data ['product_brand'];
         $product->product_status= $data ['product_status'];
-        $get_image = $product-> file('product_image');
+        $get_image = $request->file('product_image');
         if($get_image)
         {
             $get_name_image=$get_image->getClientOriginalExtension();
@@ -100,19 +117,21 @@ class ProductController extends Controller
             $new_image = rand(0,99).'.'.$get_image->getClientOriginalExtension();
             $get_image ->move('public/uploads/product',$new_image);
             $product['product_image']=$new_image;
-            $product->save(); 
+            $product->save();
             Session::put('message','Thêm sản phẩm thành công');
             return Redirect::to('all-product');
         }
-        $product->save(); 
+        $product->save();
         Session::put('message','Cập nhật sản phẩm thành công');
         return Redirect::to('all-product');
     }
 
     public function delete_product($product_id)
     {
-	DB::table('tbl_product')->where('product_id',$product_id)->delete();
-	Session::put('message','Xóa  sản phẩm thành công');
-	return Redirect::to('all-product');
+        $this->AuthLogin();
+        $product = Products::find($product_id);
+        $product->delete();
+	    Session::put('message','Xóa  sản phẩm thành công');
+	    return Redirect::to('all-product');
     }
 }

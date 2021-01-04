@@ -88,7 +88,7 @@ class BrandProduct extends Controller
     public function delete_brand_product($brand_product_id)
     {
         $this->AuthLogin();
-        $brand = BrandProducts::findOrFail($category_product_id);
+        $brand = BrandProducts::findOrFail($brand_product_id);
         $brand->delete();
         Session::put('message','Xóa danh mục sản phẩm thành công');
         return Redirect::to('all-brand-product');
