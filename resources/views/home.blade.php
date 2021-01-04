@@ -200,87 +200,20 @@
 					<div class="left-sidebar">
 						<h2>Danh Mục</h2>
 						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
+						@foreach($category as $key => $cate)
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#cat">
+										<a href="{{URL::to('/danh muc san pham/'.$cate->category_id)}}">
 											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Mèo
+											{{$cate->category_name}}
 										</a>
 									</h4>
 								</div>
-								<div id="cat" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul>
-											<li><a href="#">Mèo Ba Tư </a></li>
-											<li><a href="#">Mèo Anh Lông Ngắn </a></li>
-											<li><a href="#">Mèo Tai Cụp</a></li>
-											<li><a href="#">Mèo Xiêm</a></li>
-											<li><a href="#">Mèo Ragdoll</a></li>
-										</ul>
-									</div>
-								</div>
 							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#TP">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Thực Phẩm
-										</a>
-									</h4>
-								</div>
-								<div id="TP" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul>
-											<li><a href="#">Thức ăn dạng hạt</a></li>
-											<li><a href="#">Pate</a></li>
-											<li><a href="#">Sữa</a></li>
-											<li><a href="#">Bánh xương</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#SPVS">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Sản Phẩm Vệ Sinh
-										</a>
-									</h4>
-								</div>
-								<div id="SPVS" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul>
-											<li><a href="#">Cát Vệ Sinh</a></li>
-											<li><a href="#">Nhà Vệ Sinh</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#VD">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Vật Dụng
-										</a>
-									</h4>
-								</div>
-								<div id="VD" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul>
-											<li><a href="#">Balo</a></li>
-											<li><a href="#">Chuồng nuôi</a></li>
-											<li><a href="#">Quần áo</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
+						@endforeach
 						</div><!--/category-products-->
-
+					
 						<div class="brands_products"><!--brands_products-->
 							<!-- <h2>Brands</h2>
 							<div class="brands-name">
@@ -296,19 +229,7 @@
 							</div> -->
 						</div><!--/brands_products-->
 
-						<div class="price-range"><!--price-range-->
-							<h2>Giá Sản Phẩm</h2>
-							<div class="well text-center">
-								 <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
-								 <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
-							</div>
-						</div><!--/price-range-->
-
-						<div class="shipping text-center"><!--shipping-->
-							<img src="images/home/shipping.jpg" alt="" />
-						</div><!--/shipping-->
-
-					</div>
+					</div>	
 				</div>
 				<!--CODE HIEN THI SAN PHAM-->
 				<div class="col-sm-9 padding-right">
