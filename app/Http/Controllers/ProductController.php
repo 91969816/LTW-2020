@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Redirect;
 session_start();
 class ProductController extends Controller
 {
-
     public function AuthLogin()
     {
         $admin_id = Session::get('admin_id');
@@ -24,6 +23,7 @@ class ProductController extends Controller
            return Redirect::to('admin')->send();
         }
     }
+
     public function add_product(){
         $this->AuthLogin();
         $cate_product = DB::table('tbl_category_product')->orderby('category_id','desc')->get();

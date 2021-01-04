@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\BrandProducts;
 use DB;
 use App\Models\CategoryProducts;
 use Session;
@@ -16,8 +17,9 @@ class HomeController extends Controller
 
     public function index()
     {
-        $cate_product = DB::table('tbl_category_product')->where('category_status','0')->orderby('category_id','desc')->get();
-        $brand_product = DB::table('tbl_brand')->where('brand_status','0')->orderby('brand_id','desc')->get();
+        $cate_product = CategoryProducts::orderby('category_id','desc')->get();
+        
+        $brand_product = BrandProducts::orderby('brand_id','desc')->get();
 
         //$all_product = DB::table('tbl_product')
         //->join('tbl_category_product','tbl_category_product.category_id','=','tbl_product.category_id')
