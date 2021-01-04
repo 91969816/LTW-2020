@@ -115,7 +115,7 @@ class ProductController extends Controller
         {
             $get_name_image=$get_image->getClientOriginalExtension();
             $name_image=current(explode('.',$get_name_image));
-            $new_image = rand(0,99).'.'.$get_image->getClientOriginalExtension();
+            $new_image = '0'.$product['product_id'].'.'.$get_image->getClientOriginalExtension();
             $get_image ->move('public/uploads/product',$new_image);
             $product['product_image']=$new_image;
             $product->save();
