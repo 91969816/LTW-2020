@@ -54,7 +54,8 @@ class ProductController extends Controller
         $get_image = $request->file('product_image');
         if($get_image)
         {
-            $new_image = rand(0,99).'.'.$get_image->getClientOriginalExtension();
+            $product->save();
+            $new_image = '0'.$product['product_id'].'.'.$get_image->getClientOriginalExtension();
             $get_image->move('public/uploads/product',$new_image);
             $product['product_image']=$new_image;
             $product->save();

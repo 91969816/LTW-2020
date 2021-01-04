@@ -43,7 +43,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<input type="email" class="ggg" name="customer_email" placeholder="E-MAIL" required="">
 			<input type="password" class="ggg" name="customer_password" placeholder="PASSWORD" required="">
 			<span><input type="checkbox" />Lưu tài khoản</span>
-			<h6><a href="#">Quên Mật Khẩu?</a></h6>
+			<h6><a href="{{URL::to('/forgot-pass')}}">Quên Mật Khẩu?</a></h6>
 				<div class="clearfix"></div>
 				<input type="submit" value="Đăng Nhập" name="login">
 		</form>

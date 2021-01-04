@@ -1,12 +1,6 @@
-<!--A Design by W3layouts
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE html>
 <head>
-<title>Đăng Ký</title>
+<title>Đăng nhập</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
@@ -29,7 +23,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 <div class="log-w3">
 <div class="w3layouts-main">
-	<h2>Đăng Ký</h2>
+	<h2>Quên mật khẩu</h2>
     <?php
     $message = Session::get('message');
     if($message)
@@ -38,13 +32,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         Session::put('message',null);
     }
     ?>
-		<form action ="{{URL::to('register')}}" method="post">
-            @csrf
-            <input type="email" class="ggg" name="customers_email" placeholder="E-MAIL" required="">
-            <input type="password" class="ggg" name="customers_password" placeholder="PASSWORD" required="">
-            <input type="name" class="ggg" name="customers_name" placeholder="USERNAME" required="">
-			<input type="phone" class="ggg" name="customers_phone" placeholder="PHONE" required="">
-            <button type="submit" name = "user_register" class="btn btn-primary">Đăng Ký</button>
+		<form action="{{URL::to('/forgot-pass')}}" method="post">
+             <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
+			<input type="email" class="ggg" name="customer_email" placeholder="Vui lòng nhập mail phục hồi mật khẩu" required="">
+				<div class="clearfix"></div>
+				<input type="submit" value="Gửi" name="login">
 		</form>
 </div>
 </div>

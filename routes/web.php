@@ -21,6 +21,7 @@ Route::get('/dashboard', 'App\Http\Controllers\AdminController@show_dashboard');
 
 Route::get('/admin-logout', 'App\Http\Controllers\AdminController@logout');
 Route::post('/admin-dashboard', 'App\Http\Controllers\AdminController@dashboard');
+
 // Category Product
 Route::get('/add-category-product', 'App\Http\Controllers\CategoryProduct@add_category_product');
 Route::get('/edit-category-product/{category_product_id}', 'App\Http\Controllers\CategoryProduct@edit_category_product');
@@ -53,12 +54,22 @@ Route::post('/update-product/{product_id}', 'App\Http\Controllers\ProductControl
 // Customer
 Route::get('/login', 'App\Http\Controllers\CustomersController@index_login');
 Route::post('/login', 'App\Http\Controllers\CustomersController@login');
-
 Route::get('/register', 'App\Http\Controllers\CustomersController@index_register');
-Route::post('/save-register-list', 'App\Http\Controllers\CustomersController@save_register_list');
-Route::get('/logout', 'App\Http\Controllers\CustomersController@logout');
+Route::post('/register', 'App\Http\Controllers\CustomersController@save_register_list');
 
+Route::get('/logout', 'App\Http\Controllers\CustomersController@logout');
 Route::get('/verify', 'App\Http\Controllers\CustomersController@verify');
+
+
+Route::get('/forgot-pass', 'App\Http\Controllers\CustomersController@index_forgot_pass');
+
+Route::post('/forgot-pass', 'App\Http\Controllers\CustomersController@forgotpass');
+
+Route::get('/reset-pass', 'App\Http\Controllers\CustomersController@reset_pass');
+Route::post('/reset-pass', 'App\Http\Controllers\CustomersController@save_reset_pass');
+
+
+
 
 
 

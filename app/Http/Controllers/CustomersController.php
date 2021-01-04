@@ -28,9 +28,14 @@ class CustomersController extends Controller
     public function index_register ()
     {
 
-
         return view('register');
     }
+    public function index_forgot_pass ()
+    {
+
+        return view('forgot_pass');
+    }
+
 
     public function login(Request $request){
 
@@ -77,10 +82,12 @@ class CustomersController extends Controller
             }
             else{
                 $error = 'Tài khoản không tồn tại ';
+                return Redirect::to('/')->with('error',$error);
             }
         }
         else{
             $error = 'Tài khoản không tồn tại ';
+            return Redirect::to('/')->with('error',$error);
         }
 
     }
@@ -130,6 +137,104 @@ class CustomersController extends Controller
         //     'customers_name' => $data['customers_name'],
         //     'customers_phone' => $data['customers_phone']
         // ]);
+    }
+
+    public function forgotpass(Request $request)
+    {
+
+        $data = $request->all();
+        $customers = new Customers();
+        $customers = Customers::where('customer_email',$data['customer_email'])->first();
+        if($customers)
+        {
+
+            $code =strtoupper(bin2hex(random_bytes(4)));
+            $customers ->customer_token = $code ;
+
+            $to_name = $customers ->customer_name;
+            $to_email = $customers ->customer_email;
+            $customers -> save();
+            $link_reset = url('/reset-pass?id='.$customers->customer_id.'&token='.$code);
+            $data_send = array("name"=>$to_name,"body"=>$link_reset );
+
+            Mail::send('customer.mail_reset',$data_send,function($message) use ($to_name,$to_email)
+            {
+                $message->to($to_email)->subject('Quên mật khẩu shopforpet.xyz');
+                $message->from($to_email,$to_name);
+
+            });
+
+            Session::put('message','Mail cập nhật mật khẩu đã được gửi !!!');
+           return Redirect::to('forgot-pass');
+
+        }
+        else{
+
+            Session::put('message','Email không tồn tại!!!');
+            return Redirect::to('forgot-pass');
+
+        }
+
+    }
+
+    public function reset_pass(Request $request ){
+
+        $data= $request->all();
+        if(!$data)
+        {
+            return Redirect::to('/');
+        }
+        $code = $data['token'];
+        $customer = Customers::find($data['id']);
+        if($customer['customer_token'])
+        {
+            if($customer['customer_token']==$code)
+            {
+                return View('customer.reset_pass')->with('id',$data['id'])->with('token',$code );
+
+            }else{
+
+                Session::put('message','Đường dẫn lấy lại mật khẩu không đúng');
+                return Redirect::to('forgot-pass');
+            }
+        }
+        else{
+            Session::put('message','Tài khoản không tồn tại!!!');
+            return Redirect::to('forgot-pass');
+        }
+
+    }
+
+    public function save_reset_pass(Request $request ){
+
+        $data= $request->all();
+        $code = $data['token'];
+        $customer = Customers::find($data['id']);
+        if($customer['customer_token'])
+        {
+            if($customer['customer_token']==$code)
+            {
+                if($data['customer_password']!=$data['customer_password1'])
+                {
+
+                    Session::put('message','Sai mật khẩu xác nhận!');
+                    return View('customer.reset_pass')->with('id',$data['id'])->with('token',$code );
+                }
+                $customer ->customer_password = md5($data['customer_password']);
+                $customer ->customer_token = null;
+                $customer->save();
+                Session::put('message','Cập nhật mật khẩu thành công');
+                return Redirect::to('login');
+
+            }else{
+                Session::put('message','Đường dẫn lấy lại mật khẩu không đúng');
+                return Redirect::to('forgot-pass');
+            }
+        }
+        else{
+            Session::put('message','Đường dẫn lấy lại mật khẩu không đúng');
+            return Redirect::to('forgot-pass');
+        }
     }
 
     public function logout(Request $request){

@@ -23,6 +23,13 @@ class AdminController extends Controller
         }
     }
     public function index(){
+
+        $admin_id = Session::get('admin_id');
+        if($admin_id )
+        {
+            return Redirect::to('dashboard');
+        }
+
         return view('admin_login');
     }
     public function show_dashboard(){
@@ -31,6 +38,7 @@ class AdminController extends Controller
     }
 
     public function dashboard(Request $request){
+
 
         $data = $request->all();
         $admin= Admin::where('admin_email',$data['admin_email'])->first();
