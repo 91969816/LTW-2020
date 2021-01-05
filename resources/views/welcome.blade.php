@@ -1,6 +1,8 @@
 @extends('home')
 @section('content')
-
+<?php
+$id = Session::get('customer_id');
+?>
 <div class="features_items"><!--features_items-->
 						<h2 class="title text-center">Sản phẩm mới nhất</h2>
                         @foreach($all_product as $key=> $product)

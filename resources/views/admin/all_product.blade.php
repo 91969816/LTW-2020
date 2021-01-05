@@ -87,9 +87,7 @@
 
     <footer class="panel-footer">
 
-
-
-    {{$all_product ->links()}}
+    {{$all_product ->links('pagination::bootstrap-4')}}
     </footer>
   </div>
 </div>
