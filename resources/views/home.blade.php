@@ -53,7 +53,7 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="{{URL::to('/')}}"><img src="{{('public/frontend/images/pet-shop-logo.jpg')}}" class="img-responsive" alt="" style="width:150px;height:150px;"/></a>
+							<a href="{{URL::to('/')}}"><img src="{{URL::to('public/frontend/images/pet-shop-logo.jpg')}}" class="img-responsive" alt="" style="width:150px;height:150px;"/></a>
 						</div>
 					</div>
 					<div class="col-sm-8">
@@ -153,7 +153,7 @@
 							<div class="item active">
 								<div class="col-sm-10">
 									<h1><span>Mèo Bangdal</span></h1>
-									<img src="imagesCat/meo-bengal.jpg" class="girl img-responsive" alt="" />
+									<img src="{{URL::to('imagesCat/meo-bengal.jpg')}}" class="girl img-responsive" alt="" />
 									<p>Xuất hiện vào thế kỷ 19 ở Mỹ, mèo Bengal là kết quả lai chéo giữa mèo nhà Mỹ và mèo báo châu Á. Cái tên “Bengal” lấy họ từ mèo Felis Bengalensis và giống mèo này được phát triển giống những loài mèo hoang, mèo rừng như: Mèo gấm ocelots, báo hoa mai, báo gấm, mèo đốm margays.</p>
 									<button type="button" class="btn btn-default get">Thông Tin Sản Phẩm</button>
 								</div>
@@ -161,7 +161,7 @@
 							<div class="item">
 								<div class="col-sm-10">
 									<h1><span>Mèo Ragdoll</span></h1>
-									<img src="imagesCat/meo-ragdoll.jpg" class="girl img-responsive" alt="" />
+                                    <img src="{{URL::to('imagesCat/meo-ragdoll.jpg')}}" class="girl img-responsive" alt="" />
 									<p>Mèo Ragdoll là tên một giống mèo với đôi mắt màu xanh dương và bộ lông hai màu tương phản đặc trưng. Nó là giống mèo to lớn, với cơ bắp rắn chắc và bộ lông mềm mại và hơi dài.Chúng cũng được biết đến là giống mèo hiền lành, dễ bảo và dễ thương. Mèo Ragdoll được một người gây giống Hoa Kỳ tên là Ann Baker phát triển, và cái tên Ragdoll xuất phát từ thói quen rũ người ra và thả lỏng cơ thể khi được bế lên của các cá thể mèo đời đầu tiên.</p>
 									<button type="button" class="btn btn-default get">Thông Tin Sản Phẩm</button>
 								</div>
@@ -170,7 +170,7 @@
 							<div class="item">
 								<div class="col-sm-10">
 								<h1><span>Mèo Sphynx</span></h1>
-									<img src="imagesCat/meo-Sphynx.jpg" class="girl img-responsive" alt="" />
+									<img src="{{URL::to('imagesCat/meo-Sphynx.jpg')}}" class="girl img-responsive" alt="" />
 									<p>Người ta gọi mèo Sphynx là mèo Ai Cập không phải vì Sphynx có nguồn gốc từ mảnh đất sinh ra các Pharaoh mà bởi vì ngoại hình của nó. Ban đầu người ta chỉ gọi là mèo không lông. Nhưng vì ngoại hình của chúng khá giống với bức tượng nhân sư ở Ai Cập nên cái tên mèo Ai Cập, mèo nhân sư ra đời.</p>
 									<button type="button" class="btn btn-default get">Thông Tin Sản Phẩm</button>
 								</div>
@@ -213,20 +213,20 @@
 							</div>
 						@endforeach
 						</div><!--/category-products-->
-					
+
 						<div class="brands_products"><!--brands_products-->
 							<h2>Thương hiệu sản phẩm</h2>
 							<div class="brands-name">
 								<ul class="nav nav-pills nav-stacked">
 									@foreach($brand as $key=>$brand)
-									<li><a href="{{URL::to('/thuong-hieu-san-pham/'.$brand->brand_id)}}"> 
+									<li><a href="{{URL::to('/thuong-hieu-san-pham/'.$brand->brand_id)}}">
 									<span class="pull-right">(50)</span>{{$brand->brand_name}}</a></li>
 									@endforeach
 								</ul>
 							</div>
 						</div><!--/brands_products-->
 
-					</div>	
+					</div>
 				</div>
 				<!--CODE HIEN THI SAN PHAM-->
 				<div class="col-sm-9 padding-right">

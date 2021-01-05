@@ -32,10 +32,7 @@ class ProductController extends Controller
     }
     public function all_product(){
         $this->AuthLogin();
-        $all_product = DB::table('tbl_product')
-        ->join('tbl_category_product','tbl_category_product.category_id','=','tbl_product.category_id')
-        ->join('tbl_brand','tbl_brand.brand_id','=','tbl_product.brand_id')
-        ->orderby('tbl_product.product_id','desc')->get();
+        $all_product = Products::orderBy('product_id','DESC')->Paginate(10);
         $manager_product = view('admin.all_product')->with('all_product',$all_product);
         return view('admin_layout') ->with('admin.all_product',$manager_product);
     }
@@ -135,4 +132,12 @@ class ProductController extends Controller
 	    Session::put('message','Xóa  sản phẩm thành công');
 	    return Redirect::to('all-product');
     }
+    public function detail_product($product_id)
+    {
+        $cate_product = CategoryProducts::orderby('category_id','desc')->get();
+
+        $brand_product = BrandProducts::orderby('brand_id','desc')->get();
+        return view('product.show_detail')->with('category',$cate_product)->with('brand',$brand_product);
+    }
+
 }

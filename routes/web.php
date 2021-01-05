@@ -15,8 +15,11 @@ use Illuminate\Support\Facades\Route;
 //front-end
 Route::get('/', 'App\Http\Controllers\HomeController@index');
 // Trang chủ danh mục sản phẩm
+
 Route::get('/danh-muc-san-pham/{category_id}', 'App\Http\Controllers\CategoryProduct@show_category_home');
 Route::get('/thuong-hieu-san-pham/{brand_id}', 'App\Http\Controllers\BrandProduct@show_brand_home');
+Route::get('/chi-tiet-san-pham/{product_id}','App\Http\Controllers\ProductController@detail_product');
+
 //back-end
 Route::get('/admin', 'App\Http\Controllers\AdminController@index');
 Route::get('/dashboard', 'App\Http\Controllers\AdminController@show_dashboard');

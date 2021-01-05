@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-use App\Models\CategoryProducts;
 use Session;
+use App\Models\BrandProducts;
+use App\Models\CategoryProducts;
+use App\Models\Products;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
@@ -97,19 +99,18 @@ class CategoryProduct extends Controller
 
     //End Function Admin page
     public function show_category_home($category_id){
-        $cate_product = DB::table('tbl_category_product')->where('category_status','0')->orderby('category_id','desc')->get();
+        $cate_product = CategoryProducts::where('category_status','0')->orderby('category_id','desc')->get();
 
-        $brand_product = DB::table('tbl_brand')->where('brand_status','0')->orderby('brand_id','desc')->get();
+        $brand_product = BrandProducts::where('brand_status','0')->orderby('brand_id','desc')->get();
 
-        $category_by_id = DB::table('tbl_product')->join('tbl_category_product','tbl_product.category_id','=',
-        'tbl_category_product.category_id')->where('tbl_product.category_id',$category_id)->get();
+        $category_by_id = Products::where('tbl_product.category_id',$category_id)->get();
 
-        $category_name = DB::table('tbl_category_product')->where('tbl_category_product.category_id',$category_id)
+        $category_name = CategoryProducts::where('tbl_category_product.category_id',$category_id)
         ->limit(1)->get();
 
         return view('category.show_category')->with('category',$cate_product)->with('brand',$brand_product)
         ->with('category_by_id', $category_by_id)->with('category_name',$category_name);
     }
 
-    
+
 }
