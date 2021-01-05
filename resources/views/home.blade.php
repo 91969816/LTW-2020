@@ -62,7 +62,9 @@
 								<li><a href="#"><i class="fa fa-question"></i> Trợ Giúp</a></li>
 								<li><a href="#"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
                                 <?php
-                                 $name = Session::get('customer_name');
+								 $name = Session::get('customer_name');
+								 
+								 $id = Session::get('customer_id');
                                  if($name): ?>
 
                                 <li class="dropdown">
@@ -77,8 +79,7 @@
                                         <b class="caret"></b>
                                     </a>
                                     <ul class="dropdown-menu extended logout">
-                                        <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
-                                        <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+                                        <li><a href="{{URL::to('profile/'.$id)}}"><i class=" fa fa-suitcase"></i>Profile</a></li>                                       
                                         <li><a href="{{URL::to('logout')}}"><i class="fa fa-key"></i>Đăng Xuất</a></li>
                                     </ul>
                                 </li>
@@ -96,7 +97,7 @@
 		<div class="header-bottom"><!--header-bottom-->
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-9">
+					<div class="col-sm-7">
 						<div class="navbar-header">
 							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 								<span class="sr-only">Toggle navigation</span>
@@ -128,10 +129,14 @@
 							</ul>
 						</div>
 					</div>
-					<div class="col-sm-3">
-						<div class="search_box pull-right">
-							<input type="text" placeholder="Tìm Kiếm"/>
-						</div>
+					<div class="col-sm-5">
+						<form action="{{URL::to('/tim-kiem')}}" method="post">
+							{{csrf_field()}}			
+							<div class="search_box pull-right">
+								<input type="text" name="keywords_submit" placeholder="Tìm Kiếm"/>
+								<input type="submit" style="margin-top:0;color:black" name="search_items" class="btn btn-primary btn-sm" value="Tìm Kiếm">
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>

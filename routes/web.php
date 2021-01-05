@@ -20,6 +20,8 @@ Route::get('/danh-muc-san-pham/{category_id}', 'App\Http\Controllers\CategoryPro
 Route::get('/thuong-hieu-san-pham/{brand_id}', 'App\Http\Controllers\BrandProduct@show_brand_home');
 Route::get('/chi-tiet-san-pham/{product_id}','App\Http\Controllers\ProductController@detail_product');
 
+Route::post('/tim-kiem', 'App\Http\Controllers\HomeController@search');
+
 //back-end
 Route::get('/admin', 'App\Http\Controllers\AdminController@index');
 Route::get('/dashboard', 'App\Http\Controllers\AdminController@show_dashboard');
@@ -73,6 +75,7 @@ Route::post('/forgot-pass', 'App\Http\Controllers\CustomersController@forgotpass
 Route::get('/reset-pass', 'App\Http\Controllers\CustomersController@reset_pass');
 Route::post('/reset-pass', 'App\Http\Controllers\CustomersController@save_reset_pass');
 
+Route::get('/profile/{customer_id}', 'App\Http\Controllers\CustomersController@profile');
 
 
 

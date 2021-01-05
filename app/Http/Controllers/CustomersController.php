@@ -27,7 +27,6 @@ class CustomersController extends Controller
     }
     public function index_register ()
     {
-
         return view('register');
     }
     public function index_forgot_pass ()
@@ -35,7 +34,6 @@ class CustomersController extends Controller
 
         return view('forgot_pass');
     }
-
 
     public function login(Request $request){
 
@@ -66,7 +64,7 @@ class CustomersController extends Controller
 //    }
 
     public function verify(Request $request ){
-
+        $this->AuthLogin();
         $data= $request->all();
         $code = $data['token'];
         $customer = Customers::find($data['id']);
@@ -93,7 +91,7 @@ class CustomersController extends Controller
     }
     public function save_register_list(Request $request)
     {
-
+        $this->AuthLogin();
         $data = $request->all();
         $customers = new Customers();
         $customers = Customers::where('customer_email',$data['customers_email'])->first();
@@ -141,7 +139,7 @@ class CustomersController extends Controller
 
     public function forgotpass(Request $request)
     {
-
+        $this->AuthLogin();
         $data = $request->all();
         $customers = new Customers();
         $customers = Customers::where('customer_email',$data['customer_email'])->first();
@@ -178,7 +176,7 @@ class CustomersController extends Controller
     }
 
     public function reset_pass(Request $request ){
-
+        $this->AuthLogin();
         $data= $request->all();
         if(!$data)
         {
@@ -206,7 +204,7 @@ class CustomersController extends Controller
     }
 
     public function save_reset_pass(Request $request ){
-
+        $this->AuthLogin();
         $data= $request->all();
         $code = $data['token'];
         $customer = Customers::find($data['id']);
@@ -238,12 +236,17 @@ class CustomersController extends Controller
     }
 
     public function logout(Request $request){
-
+        $this->AuthLogin();
         Session::put('customer_name', null);
         Session::put('customer_id',null);
         return Redirect::to('/');
     }
 
-
-
+    public function profile($customer_id){  
+        $this->AuthLogin();
+            
+        $customer= Customers::find($customer_id);
+        
+        return view('customer.profile')->with('customer',$customer);
+    }
 }
