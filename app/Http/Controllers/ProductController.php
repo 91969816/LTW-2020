@@ -137,7 +137,25 @@ class ProductController extends Controller
         $cate_product = CategoryProducts::orderby('category_id','desc')->get();
 
         $brand_product = BrandProducts::orderby('brand_id','desc')->get();
-        return view('product.show_detail')->with('category',$cate_product)->with('brand',$brand_product);
+        
+        $details_product = DB::table('tbl_product')
+        ->join('tbl_category_product','tbl_category_product.category_id','=','tbl_product.category_id')
+        ->join('tbl_brand','tbl_brand.brand_id','=','tbl_product.brand_id')
+        ->where('tbl_product.product_id',$product_id)->get();
+
+        foreach($details_product as $key => $value) 
+        {
+            $category_id = $value->category_id; 
+        
+        }
+          
+
+        $related_product = DB::table('tbl_product')
+        ->join('tbl_category_product','tbl_category_product.category_id','=','tbl_product.category_id')
+        ->join('tbl_brand','tbl_brand.brand_id','=','tbl_product.brand_id')
+        ->where('tbl_category_product.category_id',$category_id)->whereNotIn('tbl_product.product_id',[$product_id])->get();
+
+        return view('product.show_detail')->with('category',$cate_product)->with('brand',$brand_product)->with('product_details',$details_product)->with('relate',$related_product);
     }
 
 }
