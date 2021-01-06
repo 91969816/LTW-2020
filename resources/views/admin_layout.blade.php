@@ -124,6 +124,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <!-- <li><a href="grids.html">Grids</a></li> -->
 					</ul>
 				</li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Khách hàng</span>
+                    </a>
+                    <ul class="sub">						
+						<li><a href="{{URL::to('/all-customer')}}">Danh Sách Khách Hàng</a></li>
+                        <!-- <li><a href="grids.html">Grids</a></li> -->
+					</ul>
+				</li>
         <!--sidebar menu end-->
     </div>
 </aside>

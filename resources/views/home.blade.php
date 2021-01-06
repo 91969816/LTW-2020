@@ -63,15 +63,9 @@
                                 <li><a href="#"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
 
                                 <?php
-<<<<<<< Updated upstream
 								 $name = Session::get('customer_name');
 								 
 								 $id = Session::get('customer_id');
-=======
-                                 $name = Session::get('customer_name');
-
-                                $id = Session::get('customer_id');
->>>>>>> Stashed changes
                                  if($name): ?>
 
                                 <li class="dropdown">
@@ -86,12 +80,7 @@
                                         <b class="caret"></b>
                                     </a>
                                     <ul class="dropdown-menu extended logout">
-<<<<<<< Updated upstream
                                         <li><a href="{{URL::to('profile/'.$id)}}"><i class=" fa fa-suitcase"></i>Profile</a></li>                                       
-=======
-                                        <li><a href="{{URL::to('logout/'.$id)}}"><i class=" fa fa-suitcase"></i>Profile</a></li>
-                                        <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
->>>>>>> Stashed changes
                                         <li><a href="{{URL::to('logout')}}"><i class="fa fa-key"></i>Đăng Xuất</a></li>
                                     </ul>
                                 </li>

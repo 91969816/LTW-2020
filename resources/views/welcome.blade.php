@@ -63,7 +63,7 @@ $id = Session::get('customer_id');
                     <!--CODE DE XUAT SAN PHAM O DAY-->
 
 					<div class="recommended_items"><!--recommended_items-->
-						<h2 class="title text-center">recommended items</h2>
+						<!-- <h2 class="title text-center">recommended items</h2>
 						<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
 							<div class="carousel-inner">
 								<div class="item active">
@@ -94,6 +94,6 @@ $id = Session::get('customer_id');
 							  <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
 								<i class="fa fa-angle-right"></i>
 							  </a>
-						</div>
+						</div> -->
 					</div><!--/recommended_items-->
 @endsection

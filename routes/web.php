@@ -28,6 +28,7 @@ Route::get('/dashboard', 'App\Http\Controllers\AdminController@show_dashboard');
 
 Route::get('/admin-logout', 'App\Http\Controllers\AdminController@logout');
 Route::post('/admin-dashboard', 'App\Http\Controllers\AdminController@dashboard');
+Route::get('/all-customer', 'App\Http\Controllers\AdminController@all_customer');
 
 // Category Product
 Route::get('/add-category-product', 'App\Http\Controllers\CategoryProduct@add_category_product');
@@ -76,6 +77,8 @@ Route::get('/reset-pass', 'App\Http\Controllers\CustomersController@reset_pass')
 Route::post('/reset-pass', 'App\Http\Controllers\CustomersController@save_reset_pass');
 
 Route::get('/profile/{customer_id}', 'App\Http\Controllers\CustomersController@profile');
+
+
 
 
 

@@ -7,6 +7,7 @@ use DB;
 use App\Models\Admin;
 use Session;
 use App\Http\Requests;
+use App\Models\Customers;
 use Illuminate\Support\Facades\Redirect;
 session_start();
 class AdminController extends Controller
@@ -59,5 +60,12 @@ class AdminController extends Controller
         Session::put('admin_name', null);
         Session::put('admin_id',null);
         return Redirect::to('admin');
+    }
+
+    public function all_customer(){
+        $this->AuthLogin();
+        $all_customer = Customers::orderBy('customer_id','DESC')->Paginate(10);
+        $manager_customer = view('customer.all_customer')->with('all_customer',$all_customer);
+        return view('admin_layout') ->with('customer.all_customer',$manager_customer);
     }
 }

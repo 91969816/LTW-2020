@@ -249,4 +249,5 @@ class CustomersController extends Controller
         
         return view('customer.profile')->with('customer',$customer);
     }
+  
 }
