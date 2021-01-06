@@ -5,8 +5,10 @@
     <div class="container">
         <div class="breadcrumbs">
             <ol class="breadcrumbs">
-                <li><a href="{{URL::to('/')}}">Trang chủ</a><li>
-                <li class="active">Giỏ hàng </li>
+                <li>
+                    <a href="{{URL::to('/')}}">Trang chủ</a>
+                </li>
+                <li class="active">Giỏ hàng</li>
             </ol>
         </div>
     <div class="table-reponsive cart_info">

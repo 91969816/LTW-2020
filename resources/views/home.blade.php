@@ -231,13 +231,11 @@
 								</ul>
 							</div>
 						</div><!--/brands_products-->
-
 					</div>
 				</div>
 				<!--CODE HIEN THI SAN PHAM-->
 				<div class="col-sm-9 padding-right">
 						@yield('content')
-
 				</div>
 			</div>
 		</div>
