@@ -60,7 +60,7 @@
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
 								<li><a href="#"><i class="fa fa-question"></i> Trợ Giúp</a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+                                <li><a href="{{URL::to('/show-cart')}}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
 
                                 <?php
 								 $name = Session::get('customer_name');
@@ -85,6 +85,8 @@
                                     </ul>
                                 </li>
                                 <?php else: ?>
+								<li><a href="{{URL::to('/login-checkout')}}"><i class="fa fa-sign-in"></i> Tài Khoản</a></li>
+								<li><a href="{{URL::to('/checkout')}}"><i class="fa fa-sign-in"></i> Thanh Toán</a></li>
 								<li><a href="{{URL::to('login')}}"><i class="fa fa-sign-in"></i> Đăng Nhập</a></li>
                                 <li><a href="{{URL::to('register')}}"><i class="fa fa-sign-in"></i> Đăng Ký</a></li>
                                 <?php endif; ?>
