@@ -9,9 +9,11 @@ use Session;
 use App\Http\Requests;
 use App\Models\BrandProducts;
 use App\Models\Products;
+
 use Illuminate\Support\Facades\DB as FacadesDB;
 use Illuminate\Support\Facades\Redirect;
 use Cart;
+
 session_start();
 class CartController extends Controller
 {
@@ -28,10 +30,11 @@ class CartController extends Controller
         $data['name']=$product_info->product_name;
         $data['price']=$product_info->product_price;
         $data['weight']='123';
-        $data['option']['image']=$product_info->product_image;
+        $data['options']['image']=$product_info->product_image;
 
         Cart::add($data);
         return Redirect::to('/show-cart');
+        
 
        
     }

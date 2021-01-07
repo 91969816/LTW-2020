@@ -59,14 +59,16 @@
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-question"></i> Trợ Giúp</a></li>
-                                <li><a href="{{URL::to('/show-cart')}}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+								<!-- <li><a href="#"><i class="fa fa-question"></i> Trợ Giúp</a></li>-->
 
                                 <?php
 								 $name = Session::get('customer_name');
 								 
 								 $id = Session::get('customer_id');
-                                 if($name): ?>
+								 if($name): ?>
+								 <li><a href="{{URL::to('/show-cart')}}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+								 <li><a href="{{URL::to('/checkout')}}"><i class="fa fa-sign-in"></i> Thanh Toán</a></li>
+								 
 
                                 <li class="dropdown">
                                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -85,8 +87,7 @@
                                     </ul>
                                 </li>
                                 <?php else: ?>
-								<li><a href="{{URL::to('/login-checkout')}}"><i class="fa fa-sign-in"></i> Tài Khoản</a></li>
-								<li><a href="{{URL::to('/checkout')}}"><i class="fa fa-sign-in"></i> Thanh Toán</a></li>
+								<!-- <li><a href="{{URL::to('/login-checkout')}}"><i class="fa fa-sign-in"></i> Tài Khoản</a></li>								 -->
 								<li><a href="{{URL::to('login')}}"><i class="fa fa-sign-in"></i> Đăng Nhập</a></li>
                                 <li><a href="{{URL::to('register')}}"><i class="fa fa-sign-in"></i> Đăng Ký</a></li>
                                 <?php endif; ?>

@@ -4,12 +4,13 @@
 <section id="cart_items">
     <div class="container">
         <div class="breadcrumbs">
-            <ol class="breadcrumbs">
+            <ul class="breadcrumbs">
                 <li>
                     <a href="{{URL::to('/')}}">Trang chủ</a>
+                    <a>Giỏ hàng</a>
                 </li>
-                <li class="active">Giỏ hàng</li>
-            </ol>
+                
+            </ul>
         </div>
     <div class="table-reponsive cart_info">
         <?php
@@ -73,46 +74,8 @@
 
 <section id="do_action">
     <div class="container">
-        <!--<div class="heading">
-        <h3>What would you like to do next?</h3>
-        <p> Choose </p>-->
     </div>
     <div class="row">
-        <!--<div class="col-sm-6">
-            <div class="chose_area">
-                <ul class="user_option">
-                <li>
-                    <input type="checkbox">
-                    <label>Use Coupon Code</label>
-                </li>
-                <li>
-                    <input type="checkbox">
-                    <label>Use Gift Voucher</label>
-                </li>
-                <li>
-                    <input type="checkbox">
-                    <label>Shipping & Taxes</label>
-                </li>
-                </ul>
-                <ul class="user_info">
-                <li class="single_field">
-                <label>City:</label>
-                <select>
-                    <option>TP.HCM</option>
-                    <option>Hà Nội</option>
-                    <option>Đà Nẵng</option>
-                </select>
-
-                </li>
-                <li class="single-field zip-field">
-                    <label>Zip code:</label>
-                    <input type="text">
-                </li>
-            </ul>
-            <a class="btn btn-default update" href="">Get Quotes</a>
-            <a class="btn btn-default check_out" href="">Continue</a>
-            </div>
-        </div>-->
         <div class="col-sm-6">
             <div class="total_area">
                 <ul>
@@ -120,9 +83,14 @@
                     <li>Thuế <span>{{Cart::tax().' '.'VND'}}</span></li>
                     <li>Phí ship <span>Free</span></li>
                     <li>Thành tiền <span>{{Cart::total().' '.'VND'}}</span></li>
-                </ul>
-                    <!--<a class="btn btn-default update" href="">Updates</a>-->
-                    <a class="btn btn-default update" href="{{URL::to('/login-checkout')}}">Thanh toán</a>
+                    <?php																 
+								 $id = Session::get('customer_id');
+                                 if($id): ?>
+                                   <li><a href="{{URL::to('/checkout')}}">Thanh Toán</a></li>                       
+                                 <?php else : ?>
+                                    <button href="{{URL::to('/login')}}">Thanh Toán</button>
+                    <?php endif; ?>
+                </ul>             
             </div>
     </div>
     </div>

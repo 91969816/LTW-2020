@@ -3,12 +3,12 @@
 <section id="cart_items">
 		<div class="container">
 		<div class="breadcrumbs">
-            <ol class="breadcrumbs">
+            <div class="breadcrumbs">
                 <li>
-                    <a href="{{URL::to('/')}}">Trang chủ</a>
-                </li>
-                <li class="active">Thanh Toán Giỏ Hàng</li>
-            </ol>
+					<a href="{{URL::to('/')}}">Trang chủ</a>
+					<a href="{{URL::to('/checkout')}}">Thanh Toán Giỏ Hàng</a>
+                </li>                
+			</div>
         </div><!--/breadcrums-->
 
 			<div class="register-req">
@@ -18,7 +18,7 @@
 			<div class="shopper-informations">
 				<div class="row">
 					
-					<div class="col-sm-5 clearfix">
+					<div class="col-sm-10 clearfix">
 						<div class="bill-to">
 							<p>Điền thông tin gửi hàng</p>
 							<div class="form-one">
@@ -28,19 +28,12 @@
 									<input type="text" name ="shipping_name" placeholder="Họ Tên">
 									<input type="text" name="shipping_address" placeholder="Địa chỉ">
 									<input type="text" name ="shipping_phone" placeholder="Phone">
-									<input type="submit" value="Gửi" name="sent_order" class="btn-primary btn-sm">
+									<textarea name ="shipping_notes" placeholder="Ghi chú đơn hàng của bạn" rows="16"></textarea>
+									<input type="submit" value="Gửi" name="sent_order" class="btn btn-primary">
 								</form>
 							</div>
-							
 						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="order-message">
-							<p>Ghi chú gửi hàng</p>
-							<textarea name="message"  placeholder="Ghi chú đơn hàng của bạn" rows="16"></textarea>
-							<label><input type="checkbox"> Shipping to bill address</label>
-						</div>	
-					</div>					
+					</div>										
 				</div>
 			</div>
 			<div class="review-payment">

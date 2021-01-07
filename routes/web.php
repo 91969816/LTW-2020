@@ -88,6 +88,7 @@ Route::post('/update-cart-quantity', 'App\Http\Controllers\CartController@update
 //Checkout
 Route::get('/login-checkout', 'App\Http\Controllers\CheckOutController@login_checkout');
 Route::post('/add-customer', 'App\Http\Controllers\CheckOutController@add_customer');
-Route::get('/checkout', 'App\Http\Controllers\CheckOutController@checkout');
+Route::get('/checkout/{id}', 'App\Http\Controllers\CheckOutController@checkout');
+Route::post('/save-checkout-customer', 'App\Http\Controllers\CheckOutController@save_checkout_customer');
 
 

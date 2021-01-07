@@ -43,4 +43,23 @@ class CheckoutController extends Controller
         return view('checkout.show_checkout')->with('category',$cate_product)->with('brand',$brand_product);
     }
 
+    public function save_checkout_customer(Request $request)
+    {
+        $data = array();
+        $data['shipping_name'] = $request->shipping_name;
+        $data['shipping_email'] = $request->shipping_email;
+        $data['shipping_notes']=$request->shipping_notes;
+        $data['shipping_address']=$request->shipping_address;
+
+        $shipping_id = DB::table('tbl_shipping')->insertGetId($data);
+
+        Session::put('shipping_id',$shipping_id);       
+        return Redirect('/payment');
+    }
+
+    public function payment()
+    {
+
+    }
+
 }

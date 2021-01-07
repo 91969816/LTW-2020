@@ -153,7 +153,7 @@ class ProductController extends Controller
         ->join('tbl_brand','tbl_brand.brand_id','=','tbl_product.brand_id')
         ->where('tbl_category_product.category_id',$category_id)->whereNotIn('tbl_product.product_id',[$product_id])->get();
 
-        return view('product.show_detail')->with('category',$cate_product)->with('brand',$brand_product)
+        return view('product.show_details')->with('category',$cate_product)->with('brand',$brand_product)
         ->with('product_details',$details_product)->with('relate',$related_product);
     }
 
