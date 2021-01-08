@@ -21,8 +21,6 @@ class CartController extends Controller
         $productId = $request->productid_hidden;
         $quantity = $request->qty;
         $product_info = DB::table('tbl_product')->where('product_id',$productId)->first();
-        
-       
 
         //Cart::add('293ad','Product 1', 1,9.99,550);
         $data['id']=$product_info->product_id;
@@ -34,9 +32,7 @@ class CartController extends Controller
 
         Cart::add($data);
         return Redirect::to('/show-cart');
-        
-
-       
+   
     }
 
     public function show_cart(){

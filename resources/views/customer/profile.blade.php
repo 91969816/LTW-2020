@@ -69,7 +69,7 @@
 
                                 <li class="dropdown">
                                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                        <img alt="" src="{{('public/backend/images/2.png')}}">
+                                        <img alt="" src="{{URL::to('public/uploads/customer/'.$customer->customer_image)}}" height="40" width="40" >
                                         <span class="username">
                                         <?php
 
@@ -95,8 +95,9 @@
 		</div><!--/header-middle-->
         <div class="header-bottom"><!--header-bottom-->
         <div class="container">
-            <p style="text-align: center;">PROFILE</p>
-            <form>
+            <p style="text-align: center;">PROFILE</p>          
+            <form role="form" action = "{{URL::to('/profile/'.$id)}}" method = "post" enctype="multipart/form-data">
+            @csrf
           <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-10">
@@ -106,7 +107,7 @@
           <div class="form-group row">
             <label  for="inputusername" class="col-sm-2 col-form-label">Họ tên</label>
             <div class="col-sm-10">
-              <input type="username" value ="{{$customer->customer_name}}" name="customer_username" class="form-control" id="inputusername" placeholder="Name">
+              <input type="username" value ="{{$customer->customer_name}}" name="customer_name" class="form-control" id="inputusername" placeholder="Name">
             </div>
           </div>
           <div class="form-group row">
@@ -118,13 +119,14 @@
           <div class="form-group row">
             <label for="inputAddress" class="col-sm-2 col-form-label">Địa chỉ</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="inputAddress" placeholder="Address">
+              <input type="text" name="customer_address" class="form-control" id="inputAddress" value ="{{$customer->customer_address}}" placeholder="Address">
             </div>
           </div>
           <div class="form-group">
                 <label for="exampleInputEmail1">Ảnh đại diện</label>
-                <input type="file" name="customer_image" class = "form-control" id="exampleInputEmail1">
+                <input type="file" value="{{$customer->customer_iamge}}" name="customer_image" class = "form-control" id="exampleInputEmail1">
           </div>
+          
           <div class="form-group row">
             <div class="col-sm-10">
               <button type="submit" class="btn btn-primary">Lưu</button>

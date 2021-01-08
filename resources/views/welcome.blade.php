@@ -2,7 +2,11 @@
 @section('content')
 <?php
 $id = Session::get('customer_id');
+$token = Session::get('customer_token');
 ?>
+<?php if($token):?>
+<?php echo('Vui lòng kích hoạt tài khoản'); ?>
+<?php else:?>
 <div class="features_items"><!--features_items-->
 						<h2 class="title text-center">Sản phẩm mới nhất</h2>
                         @foreach($all_product as $key=> $product)
@@ -96,4 +100,5 @@ $id = Session::get('customer_id');
 							  </a>
 						</div> -->
 					</div><!--/recommended_items-->
+					<?php endif; ?>
 @endsection

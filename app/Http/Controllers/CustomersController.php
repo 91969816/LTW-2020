@@ -49,6 +49,9 @@ class CustomersController extends Controller
        {
         Session::put('customer_name', $customer->customer_name);
         Session::put('customer_id',$customer->customer_id);
+        Session::put('customer_image',$customer->customer_image);
+        Session::put('customer_token',$customer->customer_token);
+
         return Redirect::to('/');
        }else{
             Session::put('message','Sai mat khau !!!');
@@ -239,6 +242,8 @@ class CustomersController extends Controller
         $this->AuthLogin();
         Session::put('customer_name', null);
         Session::put('customer_id',null);
+        Session::put('customer_image',null);
+        Session::put('customer_token',null);
         return Redirect::to('/');
     }
 
@@ -249,5 +254,31 @@ class CustomersController extends Controller
         
         return view('customer.profile')->with('customer',$customer);
     }
-  
+
+    public function update_customer(Request $request,$customer_id)
+    {   
+        $this->AuthLogin();    
+        $data = $request->all();
+        $customer = Customers::find($customer_id);
+       
+        $customer->customer_name = $data ['customer_name'];
+        $customer->customer_phone= $data ['customer_phone'];
+        $customer->customer_address = $data ['customer_address'];
+
+        $get_image = $request->file('customer_image');
+        if($get_image)
+        {
+            $get_name_image=$get_image->getClientOriginalExtension();
+            $name_image=current(explode('.',$get_name_image));
+            $new_image = '0'.$customer['customer_id'].'.'.$get_image->getClientOriginalExtension();
+            $get_image ->move('public/uploads/customer',$new_image);
+            $customer['customer_image']=$new_image;
+            $customer->save();
+
+            return view('customer.profile')->with('customer',$customer);
+        }
+        $customer->save();       
+        return view('customer.profile')->with('customer',$customer);
+    }
+    
 }

@@ -63,7 +63,7 @@
 
                                 <?php
 								 $name = Session::get('customer_name');
-								 
+								 $image = Session::get('customer_image');
 								 $id = Session::get('customer_id');
 								 if($name): ?>
 								 <li><a href="{{URL::to('/show-cart')}}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
@@ -72,7 +72,7 @@
 
                                 <li class="dropdown">
                                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                        <img alt="" src="{{('public/backend/images/2.png')}}">
+                                        <img alt="" src="{{URL::to('public/uploads/customer/'.$image)}}" height="40" width="40">
                                         <span class="username">
                                         <?php
 
