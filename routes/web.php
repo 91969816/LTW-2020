@@ -90,6 +90,8 @@ Route::post('/update-cart-quantity', 'App\Http\Controllers\CartController@update
 Route::get('/login-checkout', 'App\Http\Controllers\CheckOutController@login_checkout');
 Route::post('/add-customer', 'App\Http\Controllers\CheckOutController@add_customer');
 Route::get('/checkout', 'App\Http\Controllers\CheckOutController@checkout');
+Route::get('/payment', 'App\Http\Controllers\CheckOutController@payment');
 Route::post('/save-checkout-customer', 'App\Http\Controllers\CheckOutController@save_checkout_customer');
+Route::post('/order-place', 'App\Http\Controllers\CheckOutController@order_place');
 
 

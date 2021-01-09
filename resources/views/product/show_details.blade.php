@@ -5,12 +5,12 @@
 						<div class="col-sm-5">
 							<div class="view-product">
 								<img src="{{URL::to('/public/uploads/product/'.$value->product_image)}}" alt="" />
-								<h3>ZOOM</h3>
+								
 							</div>
 							<div id="similar-product" class="carousel slide" data-ride="carousel">
 
 								  <!-- Wrapper for slides -->
-								    <div class="carousel-inner">
+								    <!-- <div class="carousel-inner">
 										<div class="item active">
 										  <a href=""><img src="images/product-details/similar1.jpg" alt=""></a>
 										  <a href=""><img src="images/product-details/similar2.jpg" alt=""></a>
@@ -27,15 +27,15 @@
 										  <a href=""><img src="images/product-details/similar3.jpg" alt=""></a>
 										</div>
 
-									</div>
+									</div> -->
 
 								  <!-- Controls -->
-								  <a class="left item-control" href="#similar-product" data-slide="prev">
+								  <!-- <a class="left item-control" href="#similar-product" data-slide="prev">
 									<i class="fa fa-angle-left"></i>
 								  </a>
 								  <a class="right item-control" href="#similar-product" data-slide="next">
 									<i class="fa fa-angle-right"></i>
-								  </a>
+								  </a> -->
 							</div>
 
 						</div>
@@ -70,11 +70,10 @@
 @endforeach
                     <div class="category-tab shop-details-tab"><!--category-tab-->
 						<div class="col-sm-12">
-							<ul class="nav nav-tabs">
-								<li class="active"><a href="#details" data-toggle="tab">Mô tả sản phẩm</a></li>
-								<li><a href="#companyprofile" data-toggle="tab">Chi tiết sản phẩm</a></li>
-								<li><a href="#tag" data-toggle="tab">Tag</a></li>
-								<li ><a href="#reviews" data-toggle="tab">Đánh giá</a></li>
+							<ul class="nav nav-tabs" class="active">
+								<li><a href="#details" data-toggle="tab">Mô tả sản phẩm</a></li>
+								<li><a href="#companyprofile" data-toggle="tab">Chi tiết sản phẩm</a></li>								
+								<li><a href="#reviews" data-toggle="tab">Đánh giá</a></li>
 							</ul>
 						</div>
 						<div class="tab-content">
@@ -87,27 +86,9 @@
 							<div class="tab-pane fade" id="companyprofile" >
 
 								
-							<p>{!!$value->product_content!!}</p>
+								<p>{!!$value->product_content!!}</p>
 
-
-							</div>
-
-							<div class="tab-pane fade" id="tag" >
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/gallery1.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-											</div>
-										</div>
-									</div>
-								</div>
-
-
-                            </div>
+							</div>                            
                               <!-- duong dan anh -->
                         <!-- URL::to('public/uploads/product/'.procduct->product_image) -->
 

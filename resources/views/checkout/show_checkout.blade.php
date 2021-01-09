@@ -36,7 +36,7 @@
 					</div>										
 				</div>
 			</div>
-			<div class="review-payment">
+			<!-- <div class="review-payment">
 				<h2>Xem lại giỏ hàng</h2>
 			</div>
 
@@ -52,6 +52,6 @@
 						<label><input type="checkbox"> Paypal</label>
 					</span>
 				</div>
-		</div>
+		</div> -->
 	</section> <!--/#cart_items-->
 @endsection

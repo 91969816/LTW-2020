@@ -80,9 +80,9 @@
 		<span>
 			<label><input name="payment_option" value = "2" type ="checkbox"> Thanh toán bằng tiền mặt</label>
 		</span>
-		<!-- <span>
+		<span>
 			<label><input name="payment_option" value = "3" type ="checkbox"> Thanh toán bằng ví momo</label>
-		</span> -->
+		</span>
         <input type="submit" value="Đặt hàng" name="sent_order_place" class="btn btn-primary">
 	</div>
     </form>
