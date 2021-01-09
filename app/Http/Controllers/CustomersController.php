@@ -142,7 +142,7 @@ class CustomersController extends Controller
 
     public function forgotpass(Request $request)
     {
-        $this->AuthLogin();
+
         $data = $request->all();
         $customers = new Customers();
         $customers = Customers::where('customer_email',$data['customer_email'])->first();
@@ -179,7 +179,7 @@ class CustomersController extends Controller
     }
 
     public function reset_pass(Request $request ){
-        $this->AuthLogin();
+
         $data= $request->all();
         if(!$data)
         {
@@ -207,7 +207,7 @@ class CustomersController extends Controller
     }
 
     public function save_reset_pass(Request $request ){
-        $this->AuthLogin();
+
         $data= $request->all();
         $code = $data['token'];
         $customer = Customers::find($data['id']);
@@ -247,20 +247,21 @@ class CustomersController extends Controller
         return Redirect::to('/');
     }
 
-    public function profile($customer_id){  
+    public function profile($customer_id){
         $this->AuthLogin();
-            
+
         $customer= Customers::find($customer_id);
-        
+
+
         return view('customer.profile')->with('customer',$customer);
     }
 
     public function update_customer(Request $request,$customer_id)
-    {   
-        $this->AuthLogin();    
+    {
+        $this->AuthLogin();
         $data = $request->all();
         $customer = Customers::find($customer_id);
-       
+
         $customer->customer_name = $data ['customer_name'];
         $customer->customer_phone= $data ['customer_phone'];
         $customer->customer_address = $data ['customer_address'];
@@ -277,8 +278,8 @@ class CustomersController extends Controller
 
             return view('customer.profile')->with('customer',$customer);
         }
-        $customer->save();       
+        $customer->save();
         return view('customer.profile')->with('customer',$customer);
     }
-    
+
 }

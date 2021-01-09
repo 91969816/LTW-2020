@@ -93,5 +93,8 @@ Route::get('/checkout', 'App\Http\Controllers\CheckOutController@checkout');
 Route::get('/payment', 'App\Http\Controllers\CheckOutController@payment');
 Route::post('/save-checkout-customer', 'App\Http\Controllers\CheckOutController@save_checkout_customer');
 Route::post('/order-place', 'App\Http\Controllers\CheckOutController@order_place');
-
+//Order
+Route::get('/edit-order/{order_id}','App\Http\Controllers\CheckOutController@edit_order');
+Route::post('/update-order/{order_id}','App\Http\Controllers\CheckOutController@update_order');
+Route::get('/all-order','App\Http\Controllers\CheckOutController@all_order');
 

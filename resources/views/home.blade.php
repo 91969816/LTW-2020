@@ -68,11 +68,16 @@
 								 if($name): ?>
 								 <li><a href="{{URL::to('/show-cart')}}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
 								 <li><a href="{{URL::to('/checkout')}}"><i class="fa fa-sign-in"></i> Thanh Toán</a></li>
-								 
+
 
                                 <li class="dropdown">
                                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                        <?php if($image): ?>
+
                                         <img alt="" src="{{URL::to('public/uploads/customer/'.$image)}}" height="40" width="40">
+                                        <?php else:?>
+                                            <img alt="" src="{{URL::to('public/uploads/customer/no-avatar.png')}}" height="40" width="40">
+                                        <?php endif;?>
                                         <span class="username">
                                         <?php
 
@@ -82,7 +87,7 @@
                                         <b class="caret"></b>
                                     </a>
                                     <ul class="dropdown-menu extended logout">
-                                        <li><a href="{{URL::to('profile/'.$id)}}"><i class=" fa fa-suitcase"></i>Profile</a></li>                                       
+                                        <li><a href="{{URL::to('profile/'.$id)}}"><i class=" fa fa-suitcase"></i>Profile</a></li>
                                         <li><a href="{{URL::to('logout')}}"><i class="fa fa-key"></i>Đăng Xuất</a></li>
                                     </ul>
                                 </li>
@@ -135,7 +140,7 @@
 					</div>
 					<div class="col-sm-5">
 						<form action="{{URL::to('/tim-kiem')}}" method="post">
-							{{csrf_field()}}			
+							{{csrf_field()}}
 							<div class="search_box pull-right">
 								<input type="text" name="keywords_submit" placeholder="Tìm Kiếm"/>
 								<input type="submit" style="margin-top:0;color:black" name="search_items" class="btn btn-primary btn-sm" value="Tìm Kiếm">

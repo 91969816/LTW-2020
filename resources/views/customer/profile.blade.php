@@ -63,13 +63,19 @@
 								<li><a href="#"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
                                 <?php
 								 $name = Session::get('customer_name');
-								 
+                                 $image = Session::get('customer_image');
 								 $id = Session::get('customer_id');
                                  if($name): ?>
 
                                 <li class="dropdown">
                                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                        <img alt="" src="{{URL::to('public/uploads/customer/'.$customer->customer_image)}}" height="40" width="40" >
+
+                                     <?php if($customer->customer_image): ?>
+                                     <img alt="" src="{{URL::to('public/uploads/customer/'.$customer->customer_image)}}" height="40" width="40" >
+                                        <?php else:?>
+                                        <img alt="" src="{{URL::to('public/uploads/customer/no-avatar.png')}}" height="40" width="40">
+                                        <?php endif;?>
+
                                         <span class="username">
                                         <?php
 
@@ -79,10 +85,11 @@
                                         <b class="caret"></b>
                                     </a>
                                     <ul class="dropdown-menu extended logout">
-                                        <li><a href="{{URL::to('profile/'.$id)}}"><i class=" fa fa-suitcase"></i>Profile</a></li>                                       
+                                        <li><a href="{{URL::to('profile/'.$id)}}"><i class=" fa fa-suitcase"></i>Profile</a></li>
                                         <li><a href="{{URL::to('logout')}}"><i class="fa fa-key"></i>Đăng Xuất</a></li>
                                     </ul>
                                 </li>
+
                                 <?php else: ?>
 								<li><a href="{{URL::to('login')}}"><i class="fa fa-sign-in"></i> Đăng Nhập</a></li>
                                 <li><a href="{{URL::to('register')}}"><i class="fa fa-sign-in"></i> Đăng Ký</a></li>
@@ -95,13 +102,13 @@
 		</div><!--/header-middle-->
         <div class="header-bottom"><!--header-bottom-->
         <div class="container">
-            <p style="text-align: center;">PROFILE</p>          
+            <p style="text-align: center;">PROFILE</p>
             <form role="form" action = "{{URL::to('/profile/'.$id)}}" method = "post" enctype="multipart/form-data">
             @csrf
           <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-10">
-              <output readonly type="email" name="customer_email" class="form-control" id="inputEmail3" placeholder="Email">{{$customer->customer_email}} 
+              <input readonly type="email" name="customer_email" class="form-control" id="inputEmail3" placeholder="Email">{{$customer->customer_email}}
             </div>
           </div>
           <div class="form-group row">
@@ -113,7 +120,7 @@
           <div class="form-group row">
             <label for="inputPhone" class="col-sm-2 col-form-label">Số điện thoại</label>
             <div class="col-sm-10">
-              <input type="phone" value ="{{$customer->customer_phone}}" name="customer_phone" class="form-control" id="inputPhone" placeholder="Phone">             
+              <input type="phone" value ="{{$customer->customer_phone}}" name="customer_phone" class="form-control" id="inputPhone" placeholder="Phone">
             </div>
           </div>
           <div class="form-group row">
@@ -126,12 +133,12 @@
                 <label for="exampleInputEmail1">Ảnh đại diện</label>
                 <input type="file" value="{{$customer->customer_iamge}}" name="customer_image" class = "form-control" id="exampleInputEmail1">
           </div>
-          
+
           <div class="form-group row">
             <div class="col-sm-10">
               <button type="submit" class="btn btn-primary">Lưu</button>
             </div>
           </div>
-        </form>                           
+        </form>
             </div>
 </div>

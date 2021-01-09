@@ -51,7 +51,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <!-- user login dropdown start-->
         <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                <img alt="" src="{{('public/backend/images/2.png')}}">
+                <img alt="" src="{{('public/backend/customer/no-avatar.jpg')}}">
                 <span class="username">
                 <?php
                 $name = Session::get('admin_name');
@@ -65,8 +65,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">
-                <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
-                <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
                 <li><a href="{{URL::to('admin-logout')}}"><i class="fa fa-key"></i>Đăng Xuất</a></li>
             </ul>
         </li>
@@ -129,8 +127,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <i class="fa fa-book"></i>
                         <span>Khách hàng</span>
                     </a>
-                    <ul class="sub">						
+                    <ul class="sub">
 						<li><a href="{{URL::to('/all-customer')}}">Danh Sách Khách Hàng</a></li>
+                        <!-- <li><a href="grids.html">Grids</a></li> -->
+					</ul>
+				</li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Đặt hàng</span>
+                    </a>
+                    <ul class="sub">
+						<li><a href="{{URL::to('/all-order')}}">Danh sách đặt hàng</a></li>
                         <!-- <li><a href="grids.html">Grids</a></li> -->
 					</ul>
 				</li>

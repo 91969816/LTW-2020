@@ -8,6 +8,8 @@ use Cart;
 use App\Http\Requests;
 use App\Models\BrandProducts;
 use App\Models\Products;
+use App\Models\Order;
+use App\Models\Customers;
 use Illuminate\Support\Facades\DB as FacadesDB;
 use Illuminate\Support\Facades\Redirect;
 session_start();
@@ -53,7 +55,7 @@ class CheckoutController extends Controller
 
         $shipping_id = DB::table('tbl_shipping')->insertGetId($data);
 
-        Session::put('shipping_id',$shipping_id);       
+        Session::put('shipping_id',$shipping_id);
         return Redirect::to('/payment');
     }
 
@@ -97,7 +99,35 @@ class CheckoutController extends Controller
         else{
             echo 'Thanh toán bằng momo';
         }
+
+
+
         //return Redirect('/payment');
+    }
+    public function all_order(){
+
+        $all_product_order = Order::orderby('order_id','desc')->Paginate(10);
+        $all_customer = Customers::all();
+        return view('admin.all_order_product')->with("all_product_order",$all_product_order)->with("all_customer",$all_customer);
+
+
+    }
+    public function edit_order($order_id){
+
+        $edit_order_product = Order::find($order_id);
+         $customer = Customers::find($edit_order_product->customer_id);
+        // $manager_order_product = view('admin.edit_order_product')->with('edit_order_product',$edit_order_product);
+        // return view('admin_layout')->with('admin.edit_order_product',  $manager_order_product);
+        return view('admin.edit_order_product')->with('edit_order_product',$edit_order_product)->with('cus',$customer);
+
+    }
+    public function update_order(request $request,$order_id){
+        $data =$request->all();
+        $edit_order_product = Order::find($order_id);
+        $edit_order_product->order_status = $data['order_status'];
+        $edit_order_product->save();
+        return Redirect::to("all-order");
+
     }
 
 }
