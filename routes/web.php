@@ -97,4 +97,6 @@ Route::post('/order-place', 'App\Http\Controllers\CheckOutController@order_place
 Route::get('/edit-order/{order_id}','App\Http\Controllers\CheckOutController@edit_order');
 Route::post('/update-order/{order_id}','App\Http\Controllers\CheckOutController@update_order');
 Route::get('/all-order','App\Http\Controllers\CheckOutController@all_order');
+Route::get('/manage-order', 'App\Http\Controllers\CheckOutController@manage_order');
+Route::get('/view-order/{orderId}', 'App\Http\Controllers\CheckOutController@view_order');
 
