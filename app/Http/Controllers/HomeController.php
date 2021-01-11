@@ -36,9 +36,9 @@ class HomeController extends Controller
     {
         $keyword = $request ->keywords_submit;
 
-        $cate_product = DB::table('tbl_category_product')->where('category_status','0')->orderby('category_id','desc')->get();
+        $cate_product = CategoryProducts::where('category_status','0')->orderby('category_id','desc')->get();
 
-        $brand_product = DB::table('tbl_brand')->where('brand_status','0')->orderby('brand_id','desc')->get();
+        $brand_product = BrandProducts::where('brand_status','0')->orderby('brand_id','desc')->get();
 
         // // //$all_product = DB::table('tbl_product')
         // // //->join('tbl_category_product','tbl_category_product.category_id','=','tbl_product.category_id')

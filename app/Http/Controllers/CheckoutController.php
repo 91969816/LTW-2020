@@ -10,6 +10,7 @@ use App\Models\BrandProducts;
 use App\Models\Products;
 use App\Models\Order;
 use App\Models\Customers;
+use App\Models\OrderDetail;
 use Illuminate\Support\Facades\DB as FacadesDB;
 use Illuminate\Support\Facades\Redirect;
 session_start();
@@ -33,10 +34,10 @@ class CheckoutController extends Controller
         ->join('tbl_shipping','tbl_order.shipping_id','=','tbl_shipping.shipping_id')
         ->join('tbl_order_details','tbl_order.order_id','=','tbl_order_details.order_id')
         ->select('tbl_order.*','tbl_customers.*','tbl_shipping.*','tbl_order_details.*')->first();
-  
+
         $manager_order_by_id = view('admin.view_order')->with('order_by_id',$order_by_id);
         return view('admin_layout')->with('admin.view_order',$manager_order_by_id);
-        
+
     }
 
     public function login_checkout(){
@@ -121,7 +122,7 @@ class CheckoutController extends Controller
             Cart::destroy();
             $cate_product = CategoryProducts::orderby('category_id','desc')->get();
             $brand_product = BrandProducts::orderby('brand_id','desc')->get();
-    
+
             return view('checkout.handcash')->with('category',$cate_product)->with('brand',$brand_product);
         }
         else{
@@ -133,6 +134,7 @@ class CheckoutController extends Controller
         //return Redirect('/payment');
     }
     public function all_order(){
+        $this->AuthLogin();
 
         $all_product_order = Order::orderby('order_id','desc')->Paginate(10);
         $all_customer = Customers::all();
@@ -141,15 +143,18 @@ class CheckoutController extends Controller
 
     }
     public function edit_order($order_id){
-
+        $this->AuthLogin();
         $edit_order_product = Order::find($order_id);
-         $customer = Customers::find($edit_order_product->customer_id);
+        $customer = Customers::find($edit_order_product->customer_id);
+        $order_detail= OrderDetail::Where('order_id',$order_id)->get();
         // $manager_order_product = view('admin.edit_order_product')->with('edit_order_product',$edit_order_product);
         // return view('admin_layout')->with('admin.edit_order_product',  $manager_order_product);
-        return view('admin.edit_order_product')->with('edit_order_product',$edit_order_product)->with('cus',$customer);
+        return view('admin.edit_order_product')->with('edit_order_product',$edit_order_product)->with('cus',$customer)->with('order_detail',$order_detail);
+
 
     }
     public function update_order(request $request,$order_id){
+        $this->AuthLogin();
         $data =$request->all();
         $edit_order_product = Order::find($order_id);
         $edit_order_product->order_status = $data['order_status'];
@@ -157,14 +162,5 @@ class CheckoutController extends Controller
         return Redirect::to("all-order");
 
     }
-    public function manage_order(){
-        
-        $this->AuthLogin();
-        $all_order = DB::table('tbl_order')
-        ->join('tbl_customers','tbl_order.customer_id','=','tbl_customers.customer_id')
-        ->select('tbl_order.*','tbl_customers.customer_name')
-        ->orderby('tbl_order.order_id','desc')->get();
-        $manager_order = view('admin.manage_order')->with('all_order',$all_order);
-        return view('admin_layout')->with('admin.manage_order',$manager_order);
-    }
+
 }

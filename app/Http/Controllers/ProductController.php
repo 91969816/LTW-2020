@@ -26,8 +26,8 @@ class ProductController extends Controller
 
     public function add_product(){
         $this->AuthLogin();
-        $cate_product = DB::table('tbl_category_product')->orderby('category_id','desc')->get();
-        $brand_product = DB::table('tbl_brand')->orderby('brand_id','desc')->get();
+        $cate_product = CategoryProducts::orderby('category_id','desc')->get();
+        $brand_product =BrandProducts::orderby('brand_id','desc')->get();
         return view('admin.add_product') ->with('cate_product',$cate_product)->with('brand_product',$brand_product);
     }
     public function all_product(){
@@ -85,9 +85,9 @@ class ProductController extends Controller
     }
     public function edit_product($product_id){
         $this->AuthLogin();
-        $edit_product = DB::table('tbl_product')->where('product_id',$product_id)->get();
-        $cate_product = DB::table('tbl_category_product')->orderby('category_id','desc')->get();
-        $brand_product = DB::table('tbl_brand')->orderby('brand_id','desc')->get();
+        $edit_product = Products::where('product_id',$product_id)->get();
+        $cate_product = CategoryProducts::orderby('category_id','desc')->get();
+        $brand_product = BrandProducts::orderby('brand_id','desc')->get();
 
         $manager_product = view('admin.edit_product')->with('edit_product',$edit_product)
         ->with('cate_product',$cate_product)
@@ -139,7 +139,7 @@ class ProductController extends Controller
         $cate_product = CategoryProducts::orderby('category_id','desc')->get();
 
         $brand_product = BrandProducts::orderby('brand_id','desc')->get();
-        
+
         $details_product = DB::table('tbl_product')
         ->join('tbl_category_product','tbl_category_product.category_id','=','tbl_product.category_id')
         ->join('tbl_brand','tbl_brand.brand_id','=','tbl_product.brand_id')

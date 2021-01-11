@@ -5,37 +5,11 @@
 						<div class="col-sm-5">
 							<div class="view-product">
 								<img src="{{URL::to('/public/uploads/product/'.$value->product_image)}}" alt="" />
-								
+
 							</div>
 							<div id="similar-product" class="carousel slide" data-ride="carousel">
 
-								  <!-- Wrapper for slides -->
-								    <!-- <div class="carousel-inner">
-										<div class="item active">
-										  <a href=""><img src="images/product-details/similar1.jpg" alt=""></a>
-										  <a href=""><img src="images/product-details/similar2.jpg" alt=""></a>
-										  <a href=""><img src="images/product-details/similar3.jpg" alt=""></a>
-										</div>
-										<div class="item">
-										  <a href=""><img src="images/product-details/similar1.jpg" alt=""></a>
-										  <a href=""><img src="images/product-details/similar2.jpg" alt=""></a>
-										  <a href=""><img src="images/product-details/similar3.jpg" alt=""></a>
-										</div>
-										<div class="item">
-										  <a href=""><img src="images/product-details/similar1.jpg" alt=""></a>
-										  <a href=""><img src="images/product-details/similar2.jpg" alt=""></a>
-										  <a href=""><img src="images/product-details/similar3.jpg" alt=""></a>
-										</div>
 
-									</div> -->
-
-								  <!-- Controls -->
-								  <!-- <a class="left item-control" href="#similar-product" data-slide="prev">
-									<i class="fa fa-angle-left"></i>
-								  </a>
-								  <a class="right item-control" href="#similar-product" data-slide="next">
-									<i class="fa fa-angle-right"></i>
-								  </a> -->
 							</div>
 
 						</div>
@@ -54,8 +28,8 @@
 									<input name="qty" type="number" min="1" value="1" />
 									<input name="productid_hidden" type="hidden" value="{{$value->product_id}}" />
 									<button type="submit" class="btn btn-fefault cart">
-										<i class="fa fa-shopping-cart"></i> 
-										Thêm vào giỏ 
+										<i class="fa fa-shopping-cart"></i>
+										Thêm vào giỏ
 									</button>
 								</span>
 								</form>
@@ -72,7 +46,7 @@
 						<div class="col-sm-12">
 							<ul class="nav nav-tabs" class="active">
 								<li><a href="#details" data-toggle="tab">Mô tả sản phẩm</a></li>
-								<li><a href="#companyprofile" data-toggle="tab">Chi tiết sản phẩm</a></li>								
+								<li><a href="#companyprofile" data-toggle="tab">Chi tiết sản phẩm</a></li>
 								<li><a href="#reviews" data-toggle="tab">Đánh giá</a></li>
 							</ul>
 						</div>
@@ -85,10 +59,10 @@
 
 							<div class="tab-pane fade" id="companyprofile" >
 
-								
+
 								<p>{!!$value->product_content!!}</p>
 
-							</div>                            
+							</div>
                               <!-- duong dan anh -->
                         <!-- URL::to('public/uploads/product/'.procduct->product_image) -->
 

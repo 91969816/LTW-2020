@@ -13,6 +13,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- bootstrap-css -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" href="css/bootstrap.min.css" >
 <!-- //bootstrap-css -->
 <!-- Custom CSS -->
@@ -44,7 +45,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <input type="password" class="ggg" name="customers_password" placeholder="PASSWORD" required="">
             <input type="name" class="ggg" name="customers_name" placeholder="USERNAME" required="">
 			<input type="phone" class="ggg" name="customers_phone" placeholder="PHONE" required="">
-            <button type="submit" name = "user_register" class="btn btn-primary">Đăng Ký</button>
+           <center><button type="submit" name = "user_register" class="btn btn-secondary" >Đăng Ký</button></center>
 		</form>
 </div>
 </div>

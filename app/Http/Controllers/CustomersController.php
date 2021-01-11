@@ -67,7 +67,7 @@ class CustomersController extends Controller
 //    }
 
     public function verify(Request $request ){
-        $this->AuthLogin();
+
         $data= $request->all();
         $code = $data['token'];
         $customer = Customers::find($data['id']);
@@ -94,7 +94,7 @@ class CustomersController extends Controller
     }
     public function save_register_list(Request $request)
     {
-        $this->AuthLogin();
+
         $data = $request->all();
         $customers = new Customers();
         $customers = Customers::where('customer_email',$data['customers_email'])->first();
@@ -103,6 +103,7 @@ class CustomersController extends Controller
 
             $code =strtoupper(bin2hex(random_bytes(4)));
             $customers =new Customers();
+
             $customers ->customer_email = $data['customers_email'];
             $customers ->customer_password = md5($data['customers_password']);
             $customers ->customer_name = $data['customers_name'];
@@ -111,7 +112,7 @@ class CustomersController extends Controller
 
             $to_name = $customers ->customer_name;
             $to_email = $customers ->customer_email;
-            $customers -> save();
+            $customers ->save();
 
             $link_verify = url('/verify?id='.$customers->customer_id.'&token='.$code);
             $data_send = array("name"=>$to_name,"body"=>$link_verify );

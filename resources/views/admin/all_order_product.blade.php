@@ -56,9 +56,7 @@
         <tbody>
         @csrf
           @foreach($all_product_order as $key => $pro)
-
           <tr>
-
             <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
             @foreach($all_customer as $key => $cus)
             <?php if($cus->customer_id == $pro->customer_id):?>
@@ -84,6 +82,9 @@
         </tbody>
       </table>
     </div>
+
+
+
 
     <footer class="panel-footer">
 

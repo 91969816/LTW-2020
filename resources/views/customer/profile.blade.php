@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Home | Pet-Shop</title>
+    <title>Thông tin cá nhân</title>
+
     <link href="{{asset('public/frontend/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('public/frontend/css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('public/frontend/css/prettyPhoto.css')}}" rel="stylesheet">
@@ -69,16 +70,13 @@
 
                                 <li class="dropdown">
                                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-
                                      <?php if($customer->customer_image): ?>
                                      <img alt="" src="{{URL::to('public/uploads/customer/'.$customer->customer_image)}}" height="40" width="40" >
                                         <?php else:?>
                                         <img alt="" src="{{URL::to('public/uploads/customer/no-avatar.png')}}" height="40" width="40">
                                         <?php endif;?>
-
                                         <span class="username">
                                         <?php
-
                                             echo $name ;
                                         ?>
                                         </span>
@@ -142,3 +140,10 @@
         </form>
             </div>
 </div>
+
+<script src="{{asset('public/frontend/js/jquery.js')}}"></script>
+    <script src="{{asset('public/frontend/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('public/frontend/js/jquery.scrollUp.min.js')}}"></script>
+    <script src="{{asset('public/frontend/js/price-range.js')}}"></script>
+    <script src="{{asset('public/frontend/js/jquery.prettyPhoto.js')}}"></script>
+    <script src="{{asset('public/frontend/js/main.js')}}"></script>

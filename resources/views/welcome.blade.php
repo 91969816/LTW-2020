@@ -18,7 +18,7 @@ $token = Session::get('customer_token');
 											<img src="{{URL::to('public/uploads/product/'.$product->product_image)}}" alt="" />
 											<h2>{{number_format($product->product_price).' '.'VND'}}</h2>
 											<p>{{$product->product_name}}</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm Vào Giỏ Hàng</a>
+
 										</div>
 
 								</div>
@@ -101,4 +101,5 @@ $token = Session::get('customer_token');
 						</div> -->
 					</div><!--/recommended_items-->
 					<?php endif; ?>
+
 @endsection
